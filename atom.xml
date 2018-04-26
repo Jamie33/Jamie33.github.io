@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Jamie&#39;s Blog</title>
   
-  <subtitle>徐玖的博客</subtitle>
+  <subtitle>Talk is cheap, show me the code.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
