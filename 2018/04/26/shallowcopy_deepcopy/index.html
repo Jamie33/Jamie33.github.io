@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Shallowcopy and Deepcopy | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Talk is cheap, show me the code.">
+  
+
+  
+  <meta name="keywords" content="deepcopy,">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Shallowcopy and Deepcopy"/>
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Shallowcopy and Deepcopy</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/26/shallowcopy_deepcopy/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-25T16:00:00.000Z">
+          2018-04-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="赋值操作认识"><a href="#赋值操作认识" class="headerlink" title="赋值操作认识"></a>赋值操作认识</h2><p>1.赋值是将一个对象的地址赋值给一个变量，让变量指向该地址</p>
+<p>2.修改不可变对象（str、tuple）需要开辟新的空间</p>
+<p>3修改可变对象（list等）不需要开辟新的空间</p>
+<h2 id="浅拷贝（-新瓶装旧酒-）"><a href="#浅拷贝（-新瓶装旧酒-）" class="headerlink" title="浅拷贝（ 新瓶装旧酒 ）"></a>浅拷贝（ 新瓶装旧酒 ）</h2><p>浅拷贝仅仅复制了容器中元素的地址</p>
+<p>浅拷贝是在另一块地址中创建一个新的变量或容器，但是容器内的元素的地址均是源对象的元素的地址的拷贝。也就是说新的容器中指向了旧的元素（ 新瓶装旧酒 ）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">'hello'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">b = a[:] <span class="comment">#浅拷贝</span></span><br><span class="line">print(<span class="string">'源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br><span class="line">print(<span class="string">'修改浅拷贝对象b'</span>)</span><br><span class="line">b[<span class="number">0</span>] = <span class="string">'world'</span></span><br><span class="line">b[<span class="number">1</span>].append(<span class="number">4</span>)</span><br><span class="line">print(<span class="string">'修改后源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'修改后浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br></pre></td></tr></table></figure>
+<pre><code>源对象a--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934600]
+浅拷贝对象b--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934600]
+修改浅拷贝对象b
+修改后源对象a--[&apos;hello&apos;, [1, 2, 3, 4]]:[2924681864392, 2924682934600]
+修改后浅拷贝对象b--[&apos;world&apos;, [1, 2, 3, 4]]:[2924682621760, 2924682934600]
+</code></pre><p>改变前后，可变的list地址都是一样的<br>改变前后，不变的str地址有变化</p>
+<h2 id="深拷贝（新瓶装新酒）"><a href="#深拷贝（新瓶装新酒）" class="headerlink" title="深拷贝（新瓶装新酒）"></a>深拷贝（新瓶装新酒）</h2><p>深拷贝，完全拷贝了一个副本，容器内部元素地址都不一样</p>
+<p>深拷贝是在另一块地址中创建一个新的变量或容器，同时容器内的元素的地址也是新开辟的，仅仅是值相同而已，是完全的副本。也就是说（ 新瓶装新酒 ）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line">a = [<span class="string">'hello'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">b = deepcopy(a) <span class="comment">#深拷贝</span></span><br><span class="line">print(<span class="string">'源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br><span class="line">print(<span class="string">'修改深拷贝对象b'</span>)</span><br><span class="line">b[<span class="number">0</span>] = <span class="string">'world'</span></span><br><span class="line">b[<span class="number">1</span>].append(<span class="number">4</span>)</span><br><span class="line">print(<span class="string">'修改后源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'修改后浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br></pre></td></tr></table></figure>
+<pre><code>源对象a--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934088]
+浅拷贝对象b--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924681631816]
+修改深拷贝对象b
+修改后源对象a--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934088]
+修改后浅拷贝对象b--[&apos;world&apos;, [1, 2, 3, 4]]:[2924682621200, 2924681631816]
+</code></pre><p>深拷贝就是将里面引用的对象重新创建了一遍并生成了一个新的一系列引用。</p>
+<p>基本上是这样的，但是对于字符串、数字等不可修改的对象来说，重新创建一份似乎有点浪费内存，反正你到时要修改的时候都是新建对象，刷新引用的。所以还用原来的引用也无所谓，还能达到节省内存的目的。</p>
+<p>所以上面的例子中，深拷贝后的b中第一个元素是字符串，所以还是用了原来的引用</p>
+<p>元素不可变的保持原来的引用</p>
+<p>元素可变的马上创建一个一模一样的</p>
+<p>不可变的元素修改后创建新对象，再刷新引用</p>
+<h2 id="浅拷贝的几种方式"><a href="#浅拷贝的几种方式" class="headerlink" title="浅拷贝的几种方式"></a>浅拷贝的几种方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分片表达式能返回一个新的对象拷贝</span></span><br><span class="line"></span><br><span class="line">L = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">C = L[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">C[<span class="number">0</span>] = <span class="number">8</span></span><br><span class="line">print(C)</span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
+<pre><code>[8, 3]
+[1, 2, 3, 4, 5]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字典的copy方法也能够实现字典的完全复制</span></span><br><span class="line"></span><br><span class="line">D = &#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>&#125;</span><br><span class="line">B = D.copy()</span><br><span class="line">B[<span class="string">'a'</span>] = <span class="number">888</span></span><br><span class="line">print(B)</span><br><span class="line">print(D)</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;a&apos;: 888, &apos;b&apos;: 2}
+{&apos;a&apos;: 1, &apos;b&apos;: 2}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 内置函数list可以生成拷贝</span></span><br><span class="line"></span><br><span class="line">L = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">C = list(L)</span><br><span class="line">C[<span class="number">0</span>] = <span class="number">888</span></span><br><span class="line">print(C)</span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
+<pre><code>[888, 2, 3, 4]
+[1, 2, 3, 4]
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/shallowcopy/">shallowcopy</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
