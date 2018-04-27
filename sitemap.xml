@@ -4,7 +4,49 @@
   <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2018-04-27T04:33:25.765Z</lastmod>
+    <lastmod>2018-04-27T08:03:42.311Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/26/scope/</loc>
+    
+    <lastmod>2018-04-27T07:57:46.811Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/27/shallowcopy_deepcopy/</loc>
+    
+    <lastmod>2018-04-27T07:57:38.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/27/mutable_immutable/</loc>
+    
+    <lastmod>2018-04-27T07:57:22.953Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/27/regex/</loc>
+    
+    <lastmod>2018-04-27T07:57:01.619Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tages/index.html</loc>
+    
+    <lastmod>2018-04-27T07:52:02.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-04-27T07:51:50.197Z</lastmod>
     
   </url>
   
@@ -12,34 +54,6 @@
     <loc>http://yoursite.com/2018/04/27/hello-world/</loc>
     
     <lastmod>2018-04-27T04:29:24.264Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/27/mutable_immutable/</loc>
-    
-    <lastmod>2018-04-27T03:50:54.847Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/26/shallowcopy_deepcopy/</loc>
-    
-    <lastmod>2018-04-27T03:49:24.567Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/27/regex/</loc>
-    
-    <lastmod>2018-04-27T03:49:16.830Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/26/scope/</loc>
-    
-    <lastmod>2018-04-27T03:48:56.995Z</lastmod>
     
   </url>
   
