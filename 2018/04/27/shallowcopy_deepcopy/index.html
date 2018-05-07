@@ -14,8 +14,7 @@
   
 
   
-  
-  <meta name="keywords" content="shallowcopy,deepcopy">
+  <meta name="keywords" content="Jamie">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -60,8 +59,6 @@
       
         <li><a href="https://github.com/Jamie33">GitHub</a></li>
       
-        <li><a href="/atom.xml">RSS</a></li>
-      
     </ul>
   </nav>
 </header>
@@ -94,9 +91,9 @@
         <h2 id="赋值操作认识"><a href="#赋值操作认识" class="headerlink" title="赋值操作认识"></a>赋值操作认识</h2><p>1.赋值是将一个对象的地址赋值给一个变量，让变量指向该地址</p>
 <p>2.修改不可变对象（str、tuple）需要开辟新的空间</p>
 <p>3修改可变对象（list等）不需要开辟新的空间</p>
-<a id="more"></a>
 <h2 id="浅拷贝（-新瓶装旧酒-）"><a href="#浅拷贝（-新瓶装旧酒-）" class="headerlink" title="浅拷贝（ 新瓶装旧酒 ）"></a>浅拷贝（ 新瓶装旧酒 ）</h2><p>浅拷贝仅仅复制了容器中元素的地址</p>
 <p>浅拷贝是在另一块地址中创建一个新的变量或容器，但是容器内的元素的地址均是源对象的元素的地址的拷贝。也就是说新的容器中指向了旧的元素（ 新瓶装旧酒 ）</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">'hello'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">b = a[:] <span class="comment">#浅拷贝</span></span><br><span class="line">print(<span class="string">'源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br><span class="line">print(<span class="string">'修改浅拷贝对象b'</span>)</span><br><span class="line">b[<span class="number">0</span>] = <span class="string">'world'</span></span><br><span class="line">b[<span class="number">1</span>].append(<span class="number">4</span>)</span><br><span class="line">print(<span class="string">'修改后源对象a--&#123;&#125;:&#123;&#125;'</span>.format(a,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> a]))</span><br><span class="line">print(<span class="string">'修改后浅拷贝对象b--&#123;&#125;:&#123;&#125;'</span>.format(b,[id(x) <span class="keyword">for</span> x <span class="keyword">in</span> b]))</span><br></pre></td></tr></table></figure>
 <pre><code>源对象a--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934600]
 浅拷贝对象b--[&apos;hello&apos;, [1, 2, 3]]:[2924681864392, 2924682934600]
