@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>is and == | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Life is short, I use Python.">
+  
+
+  
+  <meta name="keywords" content="Jamie">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="is and =="/>
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>is and ==</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/is_==/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="python中的比较、相等性"><a href="#python中的比较、相等性" class="headerlink" title="python中的比较、相等性"></a>python中的比较、相等性</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L2 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L3 = L1</span><br><span class="line">print(L1 == L2, L1 <span class="keyword">is</span> L2)</span><br><span class="line">print(L1 == L3, L1 <span class="keyword">is</span> L3)</span><br></pre></td></tr></table></figure>
+<pre><code>True False
+True True
+</code></pre><p>==测试两个对象值的相等性，即递归的比较所有内嵌对象；值是否相等</p>
+<p>is 测试两个对象的一致性，即是否是在一个内存空间。内存地址是否一致</p>
+<h1 id="真值问题"><a href="#真值问题" class="headerlink" title="真值问题"></a>真值问题</h1><p>Python把任意的空数据结构视为假，把任何非空数据结构视为真</p>
+<p>使用None，一般都起到一个空的占位符的作用，在真值判断的时候为false</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="keyword">None</span>] * <span class="number">10</span></span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
+<pre><code>[None, None, None, None, None, None, None, None, None, None]
+</code></pre><p>内置bool函数可以测试一个对象是真还是假</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(bool([<span class="number">1</span>,<span class="number">2</span>]))</span><br><span class="line">print(bool())</span><br><span class="line">print(bool(<span class="keyword">True</span>))</span><br><span class="line">print(bool(<span class="keyword">None</span>))</span><br><span class="line">print(bool(<span class="string">'abcde'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>True
+False
+True
+False
+True
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Topics/">Topics</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jamie33';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-118264577-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to filter in list,set and dict | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Life is short, I use Python.">
+  
+
+  
+  <meta name="keywords" content="filter,list,set,dict,Jamie">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="How to filter in list,set and dict"/>
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>How to filter in list,set and dict</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/filter_in_list_dict_set/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="过滤掉列表中的负数【列表的三种方法】"><a href="#过滤掉列表中的负数【列表的三种方法】" class="headerlink" title="过滤掉列表中的负数【列表的三种方法】"></a>过滤掉列表中的负数【列表的三种方法】</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10到-10之间随机列表</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">c = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        c.append(i)</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">d = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &gt; <span class="number">0</span>]</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法三：filter 函数</span></span><br><span class="line">f = filter(<span class="keyword">lambda</span> x:x &gt; <span class="number">0</span>,data)</span><br><span class="line">print(list(f))</span><br></pre></td></tr></table></figure>
+<pre><code>[-6, 0, 4, -6, -7, 2, 9, -10, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用字典生成式建立一个20人的字典</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">p = &#123;i:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</span><br><span class="line">print(p)</span><br><span class="line">p =&#123;<span class="number">1</span>: <span class="number">88</span>, <span class="number">2</span>: <span class="number">80</span>, <span class="number">3</span>: <span class="number">76</span>, <span class="number">4</span>: <span class="number">92</span>, <span class="number">5</span>: <span class="number">88</span>, <span class="number">6</span>: <span class="number">93</span>, <span class="number">7</span>: <span class="number">91</span>, <span class="number">8</span>: <span class="number">100</span>, <span class="number">9</span>: <span class="number">60</span>, <span class="number">10</span>: <span class="number">68</span>, <span class="number">11</span>: <span class="number">85</span>, <span class="number">12</span>: <span class="number">95</span>, <span class="number">13</span>: <span class="number">73</span>, <span class="number">14</span>: <span class="number">77</span>, <span class="number">15</span>: <span class="number">65</span>, <span class="number">16</span>: <span class="number">82</span>, <span class="number">17</span>: <span class="number">67</span>, <span class="number">18</span>: <span class="number">87</span>, <span class="number">19</span>: <span class="number">89</span>, <span class="number">20</span>: <span class="number">92</span>&#125;</span><br><span class="line"><span class="comment">#筛出字典中值高于90的项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">h = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> p.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">90</span>:</span><br><span class="line">        h[k] = p[k]</span><br><span class="line">print(h)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：字典解析</span></span><br><span class="line"></span><br><span class="line">g = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> p.items() <span class="keyword">if</span> v&gt;<span class="number">90</span>&#125;</span><br><span class="line">print(g)</span><br></pre></td></tr></table></figure>
+<pre><code>{1: 85, 2: 93, 3: 60, 4: 65, 5: 97, 6: 83, 7: 79, 8: 61, 9: 80, 10: 69, 11: 95, 12: 98, 13: 91, 14: 94, 15: 64, 16: 60, 17: 85, 18: 95, 19: 64, 20: 60}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10个数的集合</span></span><br><span class="line">s = set([randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#筛出集合中能被3整除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">n = set()<span class="comment">#创建空集合</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">       n.add(i)</span><br><span class="line">print(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">w = set([i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>])</span><br><span class="line">w1 = &#123;i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>&#125;<span class="comment">#和字典解析的区别在于前面没有冒号</span></span><br><span class="line">print(w)</span><br><span class="line">print(w1)</span><br></pre></td></tr></table></figure>
+<pre><code>{2, 6, 9, -8, -7, -3, -1}
+{9, -3, 6}
+{9, -3, 6}
+{9, -3, 6}
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Skills/">Skills</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jamie33';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-118264577-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>

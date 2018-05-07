@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to Scrape All ETH Addresses from A Certain Telegram Chat | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Life is short, I use Python.">
+  
+
+  
+  <meta name="keywords" content="Telegram,Jamie">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="How to Scrape All ETH Addresses from A Certain Telegram Chat"/>
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>How to Scrape All ETH Addresses from A Certain Telegram Chat</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/Telegram/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="First-attempt-Telethon-doesn’t-work"><a href="#First-attempt-Telethon-doesn’t-work" class="headerlink" title="First attempt: Telethon (doesn’t work)"></a>First attempt: Telethon (doesn’t work)</h2><p>Telegram is a popular messaging application. This library is meant to make it easy for you to write Python programs that can interact with Telegram. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Creating a client</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> telethon <span class="keyword">import</span> TelegramClient</span><br><span class="line"><span class="keyword">import</span> socks</span><br><span class="line"></span><br><span class="line">api_id = <span class="number">240869</span></span><br><span class="line">api_hash= <span class="string">'2e5e8cb9cda41113da881a986271029d'</span></span><br><span class="line"></span><br><span class="line">client = TelegramClient(<span class="string">'sqlite3'</span>,api_id,api_hash,proxy=(socks.SOCKS5,<span class="string">'localhost'</span>,<span class="number">1080</span>))</span><br><span class="line">client.connect()</span><br><span class="line">phone_number = <span class="string">'8613480975957'</span></span><br><span class="line">client.send_code_request(phone_number)</span><br><span class="line">myself = client.sign_in(phone_number,input(<span class="string">'Enter code:'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>Enter code:5603960942
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Doing stuff</span></span><br><span class="line"></span><br><span class="line">Naus = client.get_entity(<span class="string">'t.me/NausGlobal'</span>)</span><br><span class="line">print(Naus)</span><br></pre></td></tr></table></figure>
+<pre><code>Channel(id=1249144664, title=&apos;Naus.io_Global&apos;, photo=ChatPhoto(photo_small=FileLocation(dc_id=5, volume_id=852712166, local_id=188596, secret=6383482124705140361), photo_big=FileLocation(dc_id=5, volume_id=852712166, local_id=188598, secret=7217383776991144713)), date=datetime.utcfromtimestamp(1523907796), version=0, creator=False, left=False, editor=False, broadcast=False, verified=False, megagroup=True, restricted=False, democracy=True, signatures=False, min=False, access_hash=-9112681265137568112, username=&apos;NausGlobal&apos;, restriction_reason=None, admin_rights=None, banned_rights=None, participants_count=None)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line">ID = <span class="string">r', (.+) \['</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        print(line)</span><br><span class="line">        <span class="keyword">if</span> re.search(ID,line):</span><br><span class="line">            <span class="comment">#username = re.search(name,line)</span></span><br><span class="line">            time = re.search(date,line)</span><br><span class="line">            Telid = re.search(ID,line)</span><br><span class="line">            print(<span class="string">'---------------------------'</span>)</span><br><span class="line">            <span class="comment">#print(username.group(1))</span></span><br><span class="line">            print(time.group())</span><br><span class="line">            print(Telid.group(<span class="number">1</span>))</span><br><span class="line">            print(<span class="string">'---------------------------'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>﻿.....11.03.2018 16:15:50, carl cui [@cuiyysw]: &gt;&gt;upgraded the group to a supergroup&lt;&lt;
+
+---------------------------
+11.03.2018 16:15:50
+carl cui
+---------------------------
+.....11.03.2018 16:18:02, carl cui [@cuiyysw]: &gt;&gt;changed group name to &quot;Naus.io_Global&quot;&lt;&lt;
+
+---------------------------
+11.03.2018 16:18:02
+carl cui
+---------------------------
+.....11.03.2018 23:29:14, carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿 [@loloplay]&lt;&lt;
+
+---------------------------
+11.03.2018 23:29:14
+carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿
+---------------------------
+.....12.03.2018 21:58:00, Den: &gt;&gt;joined the group&lt;&lt;
+
+.....12.03.2018 21:58:49, Федя [@Ovod13]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 21:58:49
+Федя
+---------------------------
+12.03.2018 21:59:54, Den: Арим
+
+.....12.03.2018 22:00:30, Den: &gt;&gt;left the group&lt;&lt;
+
+.....12.03.2018 22:01:07, Nata [@Nataly9900]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:01:07
+Nata
+---------------------------
+.....12.03.2018 22:01:16, Sergey Lizunov [@strahara]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:01:16
+Sergey Lizunov
+---------------------------
+12.03.2018 22:02:03, Sergey Lizunov [@strahara]: 0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F
+
+---------------------------
+12.03.2018 22:02:03
+Sergey Lizunov
+---------------------------
+.....12.03.2018 22:03:47, Van Pham [@vanphamn]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:03:47
+Van Pham
+---------------------------
+12.03.2018 22:03:52, Van Pham [@vanphamn]: 0x4907d01FAD88F4c5F4fF0c6877328b9234FBcef5
+
+---------------------------
+12.03.2018 22:03:52
+Van Pham
+---------------------------
+.....12.03.2018 22:05:44, Денис Назаров [@Astroden]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:05:44
+Денис Назаров
+---------------------------
+.....12.03.2018 22:05:54, SAJIB MAX [@sajibmax113]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:05:54
+SAJIB MAX
+---------------------------
+.....12.03.2018 22:06:00, Jean Nguessan [@Jeanlenoir]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:06:00
+Jean Nguessan
+---------------------------
+.....12.03.2018 22:06:32, vu khuong: &gt;&gt;joined the group&lt;&lt;
+
+12.03.2018 22:06:41, vu khuong: 0x2c3c4ED46A54f3107CFDfC9CBf95C4dFAc3487E2
+
+.....12.03.2018 22:07:47, Степан Рязанов [@m171pe]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:07:47
+Степан Рязанов
+---------------------------
+12.03.2018 22:07:50, 小魔女 灵儿 [@loloplay]: HI ALL，Thank you for your participation. Our event has just ended. If you are interested in our next NAB token reward, please join our Telegram group or WeChat group for more information. （
+
+---------------------------
+12.03.2018 22:07:50
+小魔女 灵儿
+---------------------------
+.....12.03.2018 22:08:23, 小魔女 灵儿 [@loloplay]: &gt;&gt;unsupported service message type: messageActionPinMessage&lt;&lt;
+
+---------------------------
+12.03.2018 22:08:23
+小魔女 灵儿
+---------------------------
+.....12.03.2018 22:08:38, Sergey Lizunov [@strahara]: &gt;&gt;left the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:08:38
+Sergey Lizunov
+---------------------------
+.....12.03.2018 22:11:02, Andrey Mishin [@Zoar1975]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:11:02
+Andrey Mishin
+---------------------------
+12.03.2018 22:11:18, Andrey Mishin [@Zoar1975]: 0xb72bf806bf1b11d955f84a0871f158322987e3c8
+
+---------------------------
+12.03.2018 22:11:18
+Andrey Mishin
+---------------------------
+.....12.03.2018 22:11:20, raju malakomda [@malakomda]: &gt;&gt;joined the group&lt;&lt;
+
+---------------------------
+12.03.2018 22:11:20
+raju malakomda
+---------------------------
+12.03.2018 22:11:21, SAJIB MAX [@sajibmax113]: thanks
+---------------------------
+12.03.2018 22:11:21
+SAJIB MAX
+---------------------------
+</code></pre><h2 id="Second-Attempt-Chrome-extension-to-save-telegram-chat-history-works-well"><a href="#Second-Attempt-Chrome-extension-to-save-telegram-chat-history-works-well" class="headerlink" title="Second Attempt: Chrome extension to save telegram chat history (works well)"></a>Second Attempt: Chrome extension to save telegram chat history (works well)</h2><p>Dumps your Telegram chat history with an active peer to plaintext.<br>Perhaps, many of us like Telegram messenger and use it for conversations with friends. However, we were a bit disappointed by the absence of any sort of easy-accessible “Save Conversation” feature in the messenger. Therefore, we’ve written a Chrome extension for it! More info at <a href="https://github.com/pigpagnet/save-telegram-chat-history" target="_blank" rel="noopener">https://github.com/pigpagnet/save-telegram-chat-history</a>.</p>
+<p><a href="https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc?utm_source=www.crx4chrome.com" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc?utm_source=www.crx4chrome.com</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test to get name</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">text = <span class="string">r'12.03.2018 22:03:52, Van Pham [@vanphamn]: 0x4907d01FAD88F4c5F4fF0c6877328b9234FBcef5'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">print(re.search(name,text).group(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>vanphamn
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test to get Eth address</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">text = <span class="string">'''Your Telegram History in "Naus.io_Global [@NausGlobal]"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">.....11.03.2018 16:15:50, carl cui [@cuiyysw]: &gt;&gt;upgraded the group to a supergroup&lt;&lt;</span></span><br><span class="line"><span class="string">.....11.03.2018 16:18:02, carl cui [@cuiyysw]: &gt;&gt;changed group name to "Naus.io_Global"&lt;&lt;</span></span><br><span class="line"><span class="string">.....11.03.2018 23:29:14, carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿 [@loloplay]&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 21:58:00, Den: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 21:58:49, Федя [@Ovod13]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">12.03.2018 21:59:54, Den: Арим</span></span><br><span class="line"><span class="string">.....12.03.2018 22:00:30, Den: &gt;&gt;left the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 22:01:07, Nata [@Nataly9900]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 22:01:16, Sergey Lizunov [@strahara]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">12.03.2018 22:02:03, Sergey Lizunov [@strahara]: 0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F</span></span><br><span class="line"><span class="string">.....12.03.2018 22:03:47, Van Pham [@vanphamn]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">content = text.split(<span class="string">'\n'</span>)</span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> content:</span><br><span class="line">    <span class="keyword">if</span> re.search(address,i):</span><br><span class="line">            eth = re.search(address,i)</span><br><span class="line">            print(eth)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;_sre.SRE_Match object; span=(49, 91), match=&apos;0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F&apos;&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first try</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line">ID = <span class="string">r', (.+) \['</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram_group_history__Naus.io_Global [@NausGlobal]_from20180311-1615_to20180504-1504__downloaded2018_05_04--18-22-55.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'telegram20180504.csv'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> w: </span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">            <span class="keyword">if</span> re.search(address,line) <span class="keyword">and</span> re.search(name,line):</span><br><span class="line">                eth = re.search(address,line).group()</span><br><span class="line">                username = re.search(name,line).group(<span class="number">1</span>)</span><br><span class="line">                time = re.search(date,line).group()</span><br><span class="line">                telid = re.search(ID,line).group(<span class="number">1</span>)</span><br><span class="line">                w.write(<span class="string">'&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;\n'</span>.format(time,telid,username,eth))</span><br><span class="line">print(<span class="string">'The End'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The End
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first try has bug in name, it will not get chat of users who have set usernames</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">n1 =<span class="string">'02.05.2018 15:07:00, wu long: 0xb1A45043Ed0aDABc6e2F658BaE0eb8EA4d311294'</span></span><br><span class="line">n2 =<span class="string">'.....02.05.2018 15:08:07, Yasin Kartal [@yasinnkrtl]: &gt;&gt;joined the group&lt;&lt;'</span></span><br><span class="line">name = <span class="string">r',(.+):'</span></span><br><span class="line">print(re.search(name,n1).group(<span class="number">1</span>).strip())</span><br><span class="line">print(re.search(name,n2).group(<span class="number">1</span>).strip())</span><br></pre></td></tr></table></figure>
+<pre><code>wu long
+Yasin Kartal [@yasinnkrtl]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># second try</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name =  <span class="string">r',(.+):'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram_group_history__Naus.io_Global [@NausGlobal]_from20180311-1615_to20180504-1504__downloaded2018_05_04--18-22-55.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'telegram20180505.csv'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> w: </span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">            <span class="keyword">if</span> re.search(address,line)<span class="keyword">and</span> re.search(name,line):</span><br><span class="line">                eth = re.search(address,line).group()</span><br><span class="line">                username = re.search(name,line).group(<span class="number">1</span>)</span><br><span class="line">                time = re.search(date,line).group()</span><br><span class="line">                w.write(<span class="string">'&#123;&#125;,&#123;&#125;,&#123;&#125;\n'</span>.format(time,username,eth))</span><br><span class="line">print(<span class="string">'The End'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>The End
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Spider/">Spider</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Spider/">Spider</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jamie33';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-118264577-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Life is short, I use Python.">
+  
+
+  
+  <meta name="keywords" content="Jamie">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/04/27/regex/"><span>Regex in Python</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/27/regex/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-26T16:00:00.000Z">
+          2018-04-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>正则表达式是一种用来匹配字符串的强有力的武器。它的设计思想是用一种描述性的语言来给字符串定义一个规则，凡是符合规则的字符串，我们就认为它“匹配”了，否则，该字符串就是不合法的。</p>
+<h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>.       字符在正则表达式代表着可以代表任何一个字符（包括它本身）</p>
+<p>\d        可以匹配一个数字 等同于[0-9]</p>
+<p>\D        等同于[^0-9]匹配非数字</p>
+<p>\w        等同于[a-z0-9A-Z_]匹配大小写字母、数字和下划线</p>
+<p>\W        等同于[^a-z0-9A-Z_]等同于上一条取非</p>
+<p>A|B     可以匹配A或B，所以(P|p)ython可以匹配’Python’或者’python’</p>
+<p>^       表示行的开头，^\d表示必须以数字开头</p>
+<p>\$       表示行的结束，\d$表示必须以数字结束</p>
+<p>\s      可以匹配空白字符,等价于 [\t\n\r\f]。（也包括Tab等空白符）</p>
+<p>\S      匹配任意非空字符  </p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Regex/">Regex</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/04/27/regex/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/04/27/shallowcopy_deepcopy/"><span>Shallowcopy and Deepcopy</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/27/shallowcopy_deepcopy/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-26T16:00:00.000Z">
+          2018-04-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="赋值操作认识"><a href="#赋值操作认识" class="headerlink" title="赋值操作认识"></a>赋值操作认识</h2><p>1.赋值是将一个对象的地址赋值给一个变量，让变量指向该地址</p>
+<p>2.修改不可变对象（str、tuple）需要开辟新的空间</p>
+<p>3修改可变对象（list等）不需要开辟新的空间</p>
+<h2 id="浅拷贝（-新瓶装旧酒-）"><a href="#浅拷贝（-新瓶装旧酒-）" class="headerlink" title="浅拷贝（ 新瓶装旧酒 ）"></a>浅拷贝（ 新瓶装旧酒 ）</h2><p>浅拷贝仅仅复制了容器中元素的地址</p>
+<p>浅拷贝是在另一块地址中创建一个新的变量或容器，但是容器内的元素的地址均是源对象的元素的地址的拷贝。也就是说新的容器中指向了旧的元素（ 新瓶装旧酒 ）</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/shallowcopy/">shallowcopy</a><a href="/tags/deepcopy/">deepcopy</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/04/27/shallowcopy_deepcopy/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/04/27/mutable_immutable/"><span>Mutable and Immutable</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/27/mutable_immutable/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-26T16:00:00.000Z">
+          2018-04-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>immutable指对象一经创建，即不可修改。对象是不是immutable取决于数据类型，比如</p>
+<p>整型（integer）、字符串（string）和元组（tuple）都是immutable，</p>
+<p>而列表（list）、字典（dictionary）、集合（set）都是mutable。</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/mutable/">mutable</a><a href="/tags/immutable/">immutable</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/04/27/mutable_immutable/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/04/26/scope/"><span>Scope in Python</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/04/26/scope/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-04-25T16:00:00.000Z">
+          2018-04-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Python中有作用域链，变量会由内到外找，先去自己作用域去找，自己没有再去上级去找，直到找不到报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"lzl"</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line">    name = <span class="string">"Eric"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">()</span>:</span></span><br><span class="line">        name = <span class="string">"Snor"</span></span><br><span class="line">        print(name)</span><br><span class="line">    f2()</span><br><span class="line">f1()</span><br></pre></td></tr></table></figure>
+<pre><code>Snor
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/scope/">scope</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/04/26/scope/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/" class="pagination-prev">Prev</a>
+  
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-118264577-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>

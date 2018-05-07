@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Module and Package in Python | Jamie&#39;s Blog | Talk is cheap, show me the code.</title>
+
+  
+  <meta name="author" content="Jamie">
+  
+
+  
+  <meta name="description" content="Life is short, I use Python.">
+  
+
+  
+  <meta name="keywords" content="module,package,Jamie">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Module and Package in Python"/>
+
+  <meta property="og:site_name" content="Jamie&#39;s Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jamie&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Jamie&#39;s Blog</a>
+    </h1>
+    <p class="site-description">Talk is cheap, show me the code.</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/categories">Categories</a></li>
+      
+        <li><a href="https://github.com/Jamie33">GitHub</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Module and Package in Python</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/module_package/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module 模块"></a>Module 模块</h1><p>模块是一个.py文件</p>
+<p>导入模块的方法以及调用相应模块中的方法（函数），类，属性，如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> modname</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入模块中特定的方法</span></span><br><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> itemname</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入模块中全部方法</span></span><br><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">itemname</span><br><span class="line"><span class="comment">#注意：导入所有除了以一个下划线( _ )开头的所有方法)</span></span><br></pre></td></tr></table></figure>
+<p>Pycache 下的 XXX.pyc 编译文件只有在模块中import 或者 from … import 才会保存</p>
+<p>Python XXX.py  运行是不会产生 Pycache!</p>
+<h1 id="模块的搜索路径"><a href="#模块的搜索路径" class="headerlink" title="模块的搜索路径"></a>模块的搜索路径</h1><p>当你导入一个模块，Python 解析器对模块位置的搜索顺序是：</p>
+<p>1、当前目录</p>
+<p>2、如果不在当前目录，Python 则搜索在 shell 变量 PYTHONPATH 下的每个目录。</p>
+<p>3、如果都找不到，Python会察看默认路径。UNIX下，默认路径一般为/usr/local/lib/python/。</p>
+<p>模块搜索路径存储在 system 模块的 sys.path 变量中。变量里包含当前目录，PYTHONPATH和由安装过程决定的默认目录。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.path) <span class="comment">#返回的是列表</span></span><br><span class="line">sys.path.append(<span class="string">''</span>) <span class="comment">#添加到搜索路径中</span></span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\python36.zip&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\DLLs&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib\\site-packages&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\extensions&apos;, &apos;C:\\Users\\Win7\\.ipython&apos;]
+</code></pre><h1 id="from-modname-import"><a href="#from-modname-import" class="headerlink" title="from modname import *"></a>from modname import *</h1><p>用用引用模块中所有函数,类,变量</p>
+<p>如果想用*通配符，又不想引用模块中的所有变量，可以在模块中用变量<strong>all</strong>进行限制，添加想引用的函数,类,变量。</p>
+<h1 id="Package-包"><a href="#Package-包" class="headerlink" title="Package 包"></a>Package 包</h1><p>包就目录中包含 <strong>init</strong>.py 文件。</p>
+<p>通常是使用用“圆点模块名”的结构化模块命名空间，例如 A.B模块表示 A包中名为B的子模块</p>
+<p>导入包中模块的方法以及调用相应模块中的方法（函数），类，属性，如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package.subpackage.modname</span><br><span class="line">package.subpackage.modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> package.subpackage <span class="keyword">import</span> modname</span><br><span class="line">modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> package.subpackage.modname <span class="keyword">import</span> itemname</span><br><span class="line">itemname</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<p>使用 from package import item 方式导入包时，这个子项（item）既可以是包中的一个子模块（或一个子包），也可以是包中定义的其它命名，像函数、类或变量。</p>
+<p>from package import item<br>(其中，item 可是使一个子包/一个子模块/包中定义的函数，类或变量)</p>
+<p>使用类似 import item.subitem.subsubitem 这样的语法时，这些子项必须是包，最后的子项可以是包或模块，但不能是前面子项中定义的类、函数或变量。</p>
+<p>import item.subitem.subsubitem<br>(其中每一项，除了最后一项，必须是包；<br> 最后一项，可以是模块/包，不可以是前面一项即包中定义的类、函数或变量)</p>
+<h1 id="from-package-import"><a href="#from-package-import" class="headerlink" title="from package import *"></a>from package import *</h1><p>以为会导入所有的子模块，不会，而且会出问题</p>
+<p>所以执行 from package import * 时，在包中的 <strong>init</strong>.py 代码定义一个名为 <strong>all</strong> 的列表，把需要的模块名加入列表，就会按照列表中给出的模块名进行导入。</p>
+<h1 id="包内引用"><a href="#包内引用" class="headerlink" title="包内引用"></a>包内引用</h1><p>如果包中使用了子包结构（就像示例中的 project 包），导入子模块两种方式：绝对导入和相对导入</p>
+<p>在同一个包中，用相对导入更方便<br>在不同包中，用绝对导入更方便，前提是没有很多层子包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">project/                          <span class="comment">#Top-level package</span></span><br><span class="line">      __init__.py               <span class="comment">#Initialize the package</span></span><br><span class="line">      A/                  <span class="comment">#Subpackage for projcet A</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PA.py</span><br><span class="line">              ...</span><br><span class="line">      B/                  <span class="comment">#Subpackage for project B</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PB.py</span><br><span class="line">              PB2.py</span><br><span class="line">              ...</span><br><span class="line">      C/                  <span class="comment">#Subpackage for project C</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PC.py</span><br><span class="line">              ...</span><br></pre></td></tr></table></figure>
+<p>绝对导入</p>
+<p>在 PB.py 中导入不同包C中的PC.py 模块</p>
+<p>from project.C. import PC</p>
+<p>相对导入</p>
+<p>以 PB.py 为例（基于当前模块的相对位置）</p>
+<p>from . import PB2 (.表示当前包，在 PB.py 中导入同一个包中的 PB2.py 模块)</p>
+<p>from ..C import PC.py(..表示上级包project，..C 表示上级包project下的C包,在 PB.py 中导入不同包C中的PC.py 模块)</p>
+<p>from ..import A (在 PB.py 中导入上级包project包中的子包A)</p>
+<p>前面的知识点<br>from package import item<br>(其中，item 可以是一个子包/一个子模块/包中定义的函数，类或变量)</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Topics/">Topics</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'jamie33';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Jamie
+    
+  </p>
+</footer>
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-118264577-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+  </div>
+</div>
+</body>
+</html>
