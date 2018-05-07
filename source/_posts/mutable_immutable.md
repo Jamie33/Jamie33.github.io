@@ -14,7 +14,7 @@ immutable指对象一经创建，即不可修改。对象是不是immutable取�
 
 而列表（list）、字典（dictionary）、集合（set）都是mutable。
 
-<!-- more -->
+
 
 ### 不可变的元祖 tuple (immutable)
 
@@ -24,6 +24,7 @@ tuple不能变了，它也没有append()，insert()这样的方法。其他获�
 
 不可变的tuple有什么意义？因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。
 
+<!-- more -->
 
 ```python
 t = (1, 2) # 当你定义一个tuple时，在定义的时候，tuple的元素就必须被确定下来

@@ -27,6 +27,7 @@ tags:  [shallowcopy,deepcopy]
 
 <!-- more -->
 
+
 ```python
 a = ['hello',[1,2,3]]
 b = a[:] #浅拷贝
