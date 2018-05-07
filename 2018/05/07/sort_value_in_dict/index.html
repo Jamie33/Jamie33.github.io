@@ -14,7 +14,7 @@
   
 
   
-  <meta name="keywords" content="dict,value,Jamie">
+  <meta name="keywords" content="Jamie">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -96,7 +96,8 @@
 
 
 [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;]
-</code></pre><h2 id="第一种方法-sorted"><a href="#第一种方法-sorted" class="headerlink" title="第一种方法 sorted"></a>第一种方法 sorted</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一种方法 sorted</span></span><br><span class="line">v = sorted(data.items(),key = <span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br><span class="line">v</span><br></pre></td></tr></table></figure>
+</code></pre><a id="more"></a>
+<h2 id="第一种方法-sorted"><a href="#第一种方法-sorted" class="headerlink" title="第一种方法 sorted"></a>第一种方法 sorted</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一种方法 sorted</span></span><br><span class="line">v = sorted(data.items(),key = <span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br><span class="line">v</span><br></pre></td></tr></table></figure>
 <pre><code>[(&apos;z&apos;, 64), (&apos;x&apos;, 74), (&apos;a&apos;, 79), (&apos;b&apos;, 79), (&apos;y&apos;, 90), (&apos;c&apos;, 99)]
 </code></pre><h2 id="第二种方法-zip-sorted"><a href="#第二种方法-zip-sorted" class="headerlink" title="第二种方法 zip+sorted"></a>第二种方法 zip+sorted</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第二种方法 zip+sorted</span></span><br><span class="line"></span><br><span class="line">n = data.keys()</span><br><span class="line">s = data.values()</span><br><span class="line">i = data.items()</span><br></pre></td></tr></table></figure>
 <pre><code>dict_items([(&apos;x&apos;, 74), (&apos;y&apos;, 90), (&apos;z&apos;, 64), (&apos;a&apos;, 79), (&apos;b&apos;, 79), (&apos;c&apos;, 99)])
@@ -129,7 +130,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
+        <a href="/tags/dict/">dict</a><a href="/tags/value/">value</a>
     </span>
     
 

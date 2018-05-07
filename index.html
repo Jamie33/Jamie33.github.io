@@ -69,93 +69,6 @@
 
   
     
-    <h3 class="article-title"><a href="/2018/05/07/named_tuple/"><span>What does named tuple do?</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/named_tuple/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">student=(<span class="string">'Jim'</span>,<span class="string">'16'</span>,<span class="string">'male'</span>,<span class="string">'Jim123@qq.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">print(student[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line">print(student[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># sex</span></span><br><span class="line">print(student[<span class="number">2</span>])</span><br><span class="line">    </span><br><span class="line"><span class="comment">#email</span></span><br><span class="line">print(student[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用元祖的下标索引来访问元组中的值，0，1，2，3名字没有意义</span></span><br></pre></td></tr></table></figure>
-<pre><code>Jim
-16
-male
-Jim123@qq.com
-</code></pre><h2 id="方法一：利用对下标索引赋值，达到有意义"><a href="#方法一：利用对下标索引赋值，达到有意义" class="headerlink" title="方法一：利用对下标索引赋值，达到有意义"></a>方法一：利用对下标索引赋值，达到有意义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一：利用对下标索引赋值，达到有意义</span></span><br><span class="line">NAME,AGE,SEX,EMAIL = range(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">print(student[NAME])</span><br><span class="line"></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line">print(student[AGE])</span><br><span class="line"></span><br><span class="line"><span class="comment"># sex</span></span><br><span class="line">print(student[SEX])</span><br><span class="line">    </span><br><span class="line"><span class="comment">#email</span></span><br><span class="line">print(student[EMAIL])</span><br></pre></td></tr></table></figure>
-<pre><code>Jim
-16
-male
-Jim123@qq.com
-</code></pre><h2 id="方法二：collections-模块-namedtuple-方法"><a href="#方法二：collections-模块-namedtuple-方法" class="headerlink" title="方法二：collections 模块 namedtuple 方法"></a>方法二：collections 模块 namedtuple 方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法二：collections 模块 namedtuple 方法</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">student = namedtuple(<span class="string">'student'</span>,[<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'sex'</span>,<span class="string">'email'</span>])</span><br><span class="line">s = student(<span class="string">'Jim'</span>,<span class="string">'16'</span>,<span class="string">'male'</span>,<span class="string">'Jim123@qq.com'</span>)</span><br><span class="line">s.name</span><br></pre></td></tr></table></figure>
-<pre><code>&apos;Jim&apos;
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.sex</span><br></pre></td></tr></table></figure>
-<pre><code>&apos;male&apos;
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.age</span><br></pre></td></tr></table></figure>
-<pre><code>&apos;16&apos;
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.email</span><br></pre></td></tr></table></figure>
-<pre><code>&apos;Jim123@qq.com&apos;
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/named_tuple/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
     <h3 class="article-title"><a href="/2018/05/07/Iterable_Iterator/"><span>Iterable and Iterator</span></a></h3>
     
   
@@ -176,43 +89,7 @@ Jim123@qq.com
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="迭代工具"><a href="#迭代工具" class="headerlink" title="迭代工具"></a>迭代工具</h1><p>Python中有一类工具叫做迭代工具，他们能从左至右扫描对象。这包括了for循环、列表解析、in成员关系测试以及map内置函数等。</p>
-<h1 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h1><p>可以用在上述迭代工具环境中，通过一次次迭代不断产生结果的对象。</p>
-<p>可迭代对象分为两大类</p>
-<p>1.实际保存的序列，即列表、元组，字符串；</p>
-<p>2.“不一次性产生所有结果列表，而是可以在for循环中按需一次产生一个结果的对象”。</p>
-<p>如：range函数返回值、zip函数返回值、enumerate函数返回值等等，与实际序列相对应，这个叫做按需产生对象的虚拟序列。</p>
-<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><p>可迭代对象支持内置函数iter，通过对可迭代对象调用iter函数，会返回一个迭代器，而“迭代器”支持内置函数next，通过不断对其调用next方法，会依次前进到序列中的下一个元素并将其返回，最后到达一系列结果的末尾时，会引发StopIteration异常。</p>
-<p>补充说明一点，对迭代器调用iter方法，则会返回迭代器自身。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">I = iter(L)</span><br><span class="line">print(iter(L))</span><br><span class="line">print(I <span class="keyword">is</span> L)</span><br><span class="line">print(I <span class="keyword">is</span> iter(I))</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;list_iterator object at 0x000001F3CB288EB8&gt;
-False
-True
-</code></pre><h1 id="迭代过程"><a href="#迭代过程" class="headerlink" title="迭代过程"></a>迭代过程</h1><p>当任何可迭代对象传入到for循环或其他迭代工具中进行遍历时，迭代工具都是先通过iter函数获得与可迭代对象对应的迭代器，然后再对迭代器调用next函数，不断的依次获取元素，并在捕捉到StopIteration异常时确定完成迭代，这就是完整的迭代过程。这也称之为“迭代协议”</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">I = iter(L)</span><br><span class="line">print(next(I))</span><br><span class="line">print(next(I))</span><br><span class="line">print(next(I))</span><br><span class="line"><span class="comment"># print(next(I)) #报错 StopIteration</span></span><br></pre></td></tr></table></figure>
-<pre><code>2
-3
-4
-</code></pre><p>与手动迭代的示例过程相对应，下面是用for循环进行自动迭代的过程</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> L:</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
-<pre><code>2
-3
-4
-</code></pre><h1 id="文件对象"><a href="#文件对象" class="headerlink" title="文件对象"></a>文件对象</h1><p>open函数返回的已打开的文件对象，也是可以一行一行的读取，直至文件结束，那很显然，他也是可迭代对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'myfile.txt'</span>)</span><br><span class="line">print(f <span class="keyword">is</span> iter(f))<span class="comment"># 不管f是迭代对象还是迭代器，iter(f) 返回的是迭代器</span></span><br><span class="line">print(next(f)) <span class="comment"># “迭代器”支持内置函数next,说明文件对象是迭代器</span></span><br><span class="line">print(next(f))</span><br><span class="line">print(next(f))</span><br></pre></td></tr></table></figure>
-<pre><code>True
-hello text file
-
-goodbyt text file
-
-hahahahah
-</code></pre><p>文件对象既是迭代器，又是可迭代对象。</p>
-<p>reference:</p>
-<p><a href="http://python.jobbole.com/85240/" target="_blank" rel="noopener">http://python.jobbole.com/85240/</a></p>
-<p><a href="http://python.jobbole.com/86258/" target="_blank" rel="noopener">http://python.jobbole.com/86258/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/24376869" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24376869</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/32508947" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32508947</a></p>
-
+        <h2 id="迭代工具"><a href="#迭代工具" class="headerlink" title="迭代工具"></a>迭代工具</h2><p>Python中有一类工具叫做迭代工具，他们能从左至右扫描对象。这包括了for循环、列表解析、in成员关系测试以及map内置函数等。</p>
       
     </div>
 
@@ -235,7 +112,7 @@ hahahahah
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Topics/">Topics</a>
+        <a href="/tags/iterable/">iterable</a><a href="/tags/iterator/">iterator</a>
     </span>
     
 
@@ -247,855 +124,6 @@ hahahahah
         <i class="icon-comments"></i>
         <span>
           <a href="/2018/05/07/Iterable_Iterator/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/dict_commonkey/"><span>How to find common keys in dict</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/dict_commonkey/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="字典生产式"><a href="#字典生产式" class="headerlink" title="字典生产式"></a>字典生产式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint,sample </span><br><span class="line"><span class="comment"># random.sample(sequence, k)，从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。</span></span><br><span class="line">s1 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s2 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s3 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">print(s1)</span><br><span class="line">print(s2)</span><br><span class="line">print(s3)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;d&apos;: 4, &apos;a&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;c&apos;: 4, &apos;b&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;e&apos;: 3, &apos;c&apos;: 4, &apos;d&apos;: 3, &apos;a&apos;: 3}
-</code></pre><h2 id="方法一：通过if-找到每个字典的公共键"><a href="#方法一：通过if-找到每个字典的公共键" class="headerlink" title="方法一：通过if 找到每个字典的公共键"></a>方法一：通过if 找到每个字典的公共键</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">common_key = [i <span class="keyword">for</span> i <span class="keyword">in</span> s1 <span class="keyword">if</span> i <span class="keyword">in</span> s2 <span class="keyword">and</span> i <span class="keyword">in</span> s3]</span><br><span class="line">print(common_key)</span><br><span class="line"></span><br><span class="line">key = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s1:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> s2 <span class="keyword">and</span> i <span class="keyword">in</span> s3:</span><br><span class="line">        key.append(i)</span><br><span class="line">print(key)</span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;e&apos;]
-[&apos;e&apos;]
-</code></pre><h2 id="方法二：用集合set的数学意义上的交集、并集"><a href="#方法二：用集合set的数学意义上的交集、并集" class="headerlink" title="方法二：用集合set的数学意义上的交集、并集"></a>方法二：用集合set的数学意义上的交集、并集</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#.keys() 返回的是一个set-like 对象，所以set具备的集合计算也可以用</span></span><br><span class="line">common_key = s1.keys()&amp;s2.keys()&amp;s3.keys()</span><br><span class="line">print(common_key)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;e&apos;}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#把多个字典合并到一起</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">This PEP proposes to change the .keys(), .values() and .items() methods of the built-in dict type </span></span><br><span class="line"><span class="string">to return a set-like or unordered container object whose contents are </span></span><br><span class="line"><span class="string">derived from the underlying dictionary rather than a list which is a </span></span><br><span class="line"><span class="string">copy of the keys, etc</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 其中.keys().items() 返回的是一个set-like 对象，所以set具备的集合计算也可以用</span></span><br><span class="line">help(dict.keys)</span><br><span class="line">help(dict.values)</span><br><span class="line">help(dict.items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 .keys(), .items()方法键，键值对并集，交集，差集</span></span><br><span class="line">print(s1.keys())  <span class="comment">#返回一个字典所有的键</span></span><br><span class="line">print(s1.keys()|s2.keys()|s3.keys()) <span class="comment"># 并集</span></span><br><span class="line">print(s1.keys()&amp;s2.keys()&amp;s3.keys()) <span class="comment"># 交集</span></span><br><span class="line"></span><br><span class="line">print(s1.items()) <span class="comment">#返回一个字典所有的键值对,键值对的交集要求键和值都一样</span></span><br><span class="line">print(s1.items()&amp;s2.items()&amp;s3.items()) <span class="comment">#交集</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用 class dict(iterable, **kwarg) 创建一个并集字典,会影响相同键不同值的项  </span></span><br><span class="line">union = dict(s1,**s2)  </span><br><span class="line"><span class="keyword">print</span> (union)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on method_descriptor:
-
-keys(...)
-    D.keys() -&gt; a set-like object providing a view on D&apos;s keys
-
-Help on method_descriptor:
-
-values(...)
-    D.values() -&gt; an object providing a view on D&apos;s values
-
-Help on method_descriptor:
-
-items(...)
-    D.items() -&gt; a set-like object providing a view on D&apos;s items
-
-dict_keys([&apos;d&apos;, &apos;a&apos;, &apos;e&apos;, &apos;f&apos;])
-{&apos;e&apos;, &apos;d&apos;, &apos;a&apos;, &apos;f&apos;, &apos;c&apos;, &apos;b&apos;}
-{&apos;e&apos;}
-dict_items([(&apos;d&apos;, 4), (&apos;a&apos;, 3), (&apos;e&apos;, 3), (&apos;f&apos;, 4)])
-{(&apos;e&apos;, 3)}
-{&apos;d&apos;: 4, &apos;a&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4, &apos;c&apos;: 4, &apos;b&apos;: 3}
-</code></pre><h2 id="方法三：适用于多个字典"><a href="#方法三：适用于多个字典" class="headerlink" title="方法三：适用于多个字典"></a>方法三：适用于多个字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一步用 map 函数返回所有字典所有的键</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">map()函数接收两个参数，一个是函数，一个是Iterable，</span></span><br><span class="line"><span class="string">map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。</span></span><br><span class="line"><span class="string">由于结果r是一个Iterator，Iterator是惰性序列，</span></span><br><span class="line"><span class="string">因此通过list()函数让它把整个序列都计算出来并返回一个list。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">s = [s1,s2,s3]</span><br><span class="line">r = map(<span class="keyword">lambda</span> x:x.keys(),s)</span><br><span class="line">r1 = map(dict.keys,s)  <span class="comment"># r 和 r1 是同等效果，得出讨论函数与方法的区别,dict.keys是函数  </span></span><br><span class="line">print(list(r1))</span><br><span class="line"><span class="comment"># 用 reduce 函数算出前一项与后一项的交集</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">reduce把一个函数作用在一个序列[x1, x2, x3, ...]上，这个函数必须接收两个参数，</span></span><br><span class="line"><span class="string">reduce把结果继续和序列的下一个元素做累积计算</span></span><br><span class="line"><span class="string">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">print(reduce(<span class="keyword">lambda</span> a,b:a&amp;b,r))</span><br><span class="line"><span class="comment"># 前面如果有print把r1这个 Iterator 序列全部打出来，r1里面就是空的，所以这里如果用r1就会报错</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(list(r1)) <span class="comment">#空序列，因为前面print完了</span></span><br><span class="line"></span><br><span class="line">print(reduce(<span class="keyword">lambda</span> a,b:a&amp;b,r1))</span><br></pre></td></tr></table></figure>
-<pre><code>[dict_keys([&apos;d&apos;, &apos;a&apos;, &apos;e&apos;, &apos;f&apos;]), dict_keys([&apos;c&apos;, &apos;b&apos;, &apos;e&apos;, &apos;f&apos;]), dict_keys([&apos;e&apos;, &apos;c&apos;, &apos;d&apos;, &apos;a&apos;])]
-{&apos;e&apos;}
-[]
-[]
-
-
-
----------------------------------------------------------------------------
-
-TypeError                                 Traceback (most recent call last)
-
-&lt;ipython-input-73-b7dcf2afc47f&gt; in &lt;module&gt;()
-     32 print(list(r1)) #空序列，因为前面print完了
-     33 
----&gt; 34 print(reduce(lambda a,b:a&amp;b,r1))
-     35 
-     36 
-
-
-TypeError: reduce() of empty sequence with no initial value
-</code></pre><h2 id="函数与方法的区别"><a href="#函数与方法的区别" class="headerlink" title="函数与方法的区别"></a>函数与方法的区别</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#函数与方法的区别  </span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">在Python中，对这两个东西有明确的规定：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">函数function —— A series of statements which returns some value to a caller. </span></span><br><span class="line"><span class="string">It can also be passed zero or more arguments which may be used in the execution </span></span><br><span class="line"><span class="string">of the body.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">方法method —— A function which is defined inside a class body. If called as an </span></span><br><span class="line"><span class="string">attribute of an instance of that class, the method will get the instance object as </span></span><br><span class="line"><span class="string">its first argument (which is usually called self).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">与类和实例无绑定关系的function都属于函数（function）；</span></span><br><span class="line"><span class="string">与类和实例有绑定关系的function都属于方法（method）。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#函数与方法 ？？？</span></span><br><span class="line">s1.keys() == dict.keys(s1)</span><br><span class="line"><span class="comment">#(方法)s1.keys() == dict.keys(s1)(函数)？？？'</span></span><br></pre></td></tr></table></figure>
-<pre><code>True
-</code></pre><h2 id="和-符号"><a href="#和-符号" class="headerlink" title="*和**符号"></a>*和**符号</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">在python中，当*和**符号出现在函数定义的参数中时，表示任意数目参数收集。*arg表示任意多个无名参数，类型为tuple;**kwargs表示关键字参数，为dict，使用时需将*arg放在**kwargs之前，否则会有“SyntaxError: non-keyword arg after keyword arg”的语法错误</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># *允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a,*args)</span>:</span></span><br><span class="line">    print(args)</span><br><span class="line"></span><br><span class="line">f(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">b = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">c = range(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br><span class="line">print(*a)</span><br><span class="line">print(*b)</span><br><span class="line">print(*c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</span><br><span class="line">        sum = sum + n * n</span><br><span class="line">    print(sum)</span><br><span class="line"></span><br><span class="line">calc(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># **,关键字参数允许你传入0个或任意个含参数名的参数,这些关键字参数在函数内部自动组装为一个dict。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">d</span><span class="params">(**kargs)</span>:</span></span><br><span class="line">    print(kargs)</span><br><span class="line">    </span><br><span class="line">d(a=<span class="number">1</span>,b=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#在函数头部能混合一般参数、*参数以及**去实现更加灵活的调用方式。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">h</span><span class="params">(a,*args,**kargs)</span>:</span></span><br><span class="line">    print(a,args,kargs)</span><br><span class="line"></span><br><span class="line">h(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,x=<span class="number">4</span>,y=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name,age,**kw)</span>:</span></span><br><span class="line">    print(<span class="string">'name:'</span>,name,<span class="string">'age:'</span>,age,<span class="string">'other:'</span>,kw)</span><br><span class="line">    </span><br><span class="line">person(<span class="string">'Adam'</span>, <span class="number">45</span>, gender=<span class="string">'M'</span>, job=<span class="string">'Engineer'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">上面是在函数定义的时候写的*和**形式，那反过来，如果*和**语法出现在函数调用中又会如何呢？他会解包参数的集合。例如，我们在调用函数时能够使用*语法，在这种情况下，它与函数定义的意思相反，他会解包参数的集合，而不是创建参数的集合。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过一个元组给一个函数传递四个参数，并且让python将它们解包成不同的参数。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a,b,c,d)</span>:</span></span><br><span class="line">    print(a,b,c,d)</span><br><span class="line"></span><br><span class="line">a = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">func(*a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果已经有一个list或者tuple，在函数调用时，在参数前加*，把list/tuple/range序列中的元素一个一个传到函数里面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span><span class="params">(*numbers)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> numbers:</span><br><span class="line">        sum = sum + n * n</span><br><span class="line">    print(sum)</span><br><span class="line"></span><br><span class="line">num = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">calc(*num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#在函数调用时，**会以键/值对的形式解包一个字典，使其成为独立的关键字参数。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">person</span><span class="params">(name,age,**kw)</span>:</span></span><br><span class="line">    print(<span class="string">'name:'</span>,name,<span class="string">'age:'</span>,age,<span class="string">'other:'</span>,kw)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment">#如果已经有一个dict,在参数前加**，把该dict的所有key-value用转换为关键字参数传进去,</span></span><br><span class="line">extra = &#123;<span class="string">'city'</span>: <span class="string">'Beijing'</span>, <span class="string">'job'</span>: <span class="string">'Engineer'</span>&#125;</span><br><span class="line">person(<span class="string">'Jack'</span>, <span class="number">24</span>, **extra)</span><br></pre></td></tr></table></figure>
-<pre><code>(2, 3, 4)
-[1, 2, 3, 4, 5]
-(1, 2, 3, 4, 5)
-range(1, 6)
-1 2 3 4 5
-1 2 3 4 5
-1 2 3 4 5
-30
-{&apos;a&apos;: 1, &apos;b&apos;: 2}
-1 (2, 3) {&apos;x&apos;: 4, &apos;y&apos;: 5}
-name: Adam age: 45 other: {&apos;gender&apos;: &apos;M&apos;, &apos;job&apos;: &apos;Engineer&apos;}
-1 2 3 4
-30
-name: Jack age: 24 other: {&apos;city&apos;: &apos;Beijing&apos;, &apos;job&apos;: &apos;Engineer&apos;}
-</code></pre><h2 id="创建字典的5种方法"><a href="#创建字典的5种方法" class="headerlink" title="创建字典的5种方法"></a>创建字典的5种方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''在python中，这两个是python中的可变参数，*arg表示任意多个无名参数，类型为tuple;**kwargs表示关键字参数，为dict，使用时需将*arg放在**kwargs之前，否则会有“SyntaxError: non-keyword arg after keyword arg”的语法错误</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment">#创建字典的5种方法</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">class dict(**kwarg)</span></span><br><span class="line"><span class="string">class dict(mapping, **kwarg)</span></span><br><span class="line"><span class="string">class dict(iterable, **kwarg)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个空字典</span></span><br><span class="line">empty_dict = dict() </span><br><span class="line">print(empty_dict)</span><br><span class="line"></span><br><span class="line"><span class="comment">#用**kwargs可变参数传入关键字创建字典</span></span><br><span class="line">a = dict(one=<span class="number">1</span>,two=<span class="number">2</span>,three=<span class="number">3</span>) </span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line"><span class="comment">#传入映射对象</span></span><br><span class="line">b = dict(zip([<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line">print(list(zip([<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>],[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])))</span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line"><span class="comment">#传入可迭代对象</span></span><br><span class="line">c = dict([(<span class="string">'one'</span>, <span class="number">1</span>), (<span class="string">'two'</span>, <span class="number">2</span>), (<span class="string">'three'</span>, <span class="number">3</span>)])</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line">c1 = dict([(<span class="string">'one'</span>, <span class="number">1</span>), (<span class="string">'two'</span>, <span class="number">2</span>), (<span class="string">'three'</span>, <span class="number">3</span>),(<span class="string">'three'</span>, <span class="number">4</span>),(<span class="string">'three'</span>, <span class="number">5</span>)])</span><br><span class="line">print(c1)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">可迭代对象中的每一项自身必须是可迭代的，并且每一项只能有两个对象。第一个对象成为新字典的键，第二个对象成为其键对应的值。如果键有重复，其值为最后重复项的值。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#传入字典创建字典</span></span><br><span class="line">d = dict(&#123;<span class="string">'one'</span>: <span class="number">1</span>, <span class="string">'two'</span>: <span class="number">2</span>, <span class="string">'three'</span>: <span class="number">3</span>&#125;)</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(a == b == c == d)</span><br></pre></td></tr></table></figure>
-<pre><code>{}
-{&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 3}
-[(&apos;one&apos;, 1), (&apos;two&apos;, 2), (&apos;three&apos;, 3)]
-{&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 3}
-{&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 3}
-{&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 5}
-{&apos;one&apos;: 1, &apos;two&apos;: 2, &apos;three&apos;: 3}
-True
-</code></pre><h2 id="获取字典中值最大的项"><a href="#获取字典中值最大的项" class="headerlink" title="获取字典中值最大的项"></a>获取字典中值最大的项</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取字典中值最大的项</span></span><br><span class="line"></span><br><span class="line">a  = &#123;<span class="string">'a'</span>: <span class="number">4</span>, <span class="string">'b'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">3</span>, <span class="string">'e'</span>: <span class="number">4</span>, <span class="string">'c'</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#max()函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m = max(a.values())</span><br><span class="line">print(m)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用Counter.most_common方法</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">c = Counter(a)</span><br><span class="line">print(c)</span><br><span class="line">print(c.most_common(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>4
-Counter({&apos;a&apos;: 4, &apos;e&apos;: 4, &apos;b&apos;: 3, &apos;d&apos;: 3, &apos;c&apos;: 3})
-[(&apos;a&apos;, 4)]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(a)</span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;__class__&apos;,
- &apos;__contains__&apos;,
- &apos;__delattr__&apos;,
- &apos;__delitem__&apos;,
- &apos;__dir__&apos;,
- &apos;__doc__&apos;,
- &apos;__eq__&apos;,
- &apos;__format__&apos;,
- &apos;__ge__&apos;,
- &apos;__getattribute__&apos;,
- &apos;__getitem__&apos;,
- &apos;__gt__&apos;,
- &apos;__hash__&apos;,
- &apos;__init__&apos;,
- &apos;__init_subclass__&apos;,
- &apos;__iter__&apos;,
- &apos;__le__&apos;,
- &apos;__len__&apos;,
- &apos;__lt__&apos;,
- &apos;__ne__&apos;,
- &apos;__new__&apos;,
- &apos;__reduce__&apos;,
- &apos;__reduce_ex__&apos;,
- &apos;__repr__&apos;,
- &apos;__setattr__&apos;,
- &apos;__setitem__&apos;,
- &apos;__sizeof__&apos;,
- &apos;__str__&apos;,
- &apos;__subclasshook__&apos;,
- &apos;clear&apos;,
- &apos;copy&apos;,
- &apos;fromkeys&apos;,
- &apos;get&apos;,
- &apos;items&apos;,
- &apos;keys&apos;,
- &apos;pop&apos;,
- &apos;popitem&apos;,
- &apos;setdefault&apos;,
- &apos;update&apos;,
- &apos;values&apos;]
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/dict_commonkey/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/filter_in_list_dict_set/"><span>How to filter in list,set and dict</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/filter_in_list_dict_set/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="过滤掉列表中的负数【列表的三种方法】"><a href="#过滤掉列表中的负数【列表的三种方法】" class="headerlink" title="过滤掉列表中的负数【列表的三种方法】"></a>过滤掉列表中的负数【列表的三种方法】</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10到-10之间随机列表</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">c = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        c.append(i)</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">d = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &gt; <span class="number">0</span>]</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法三：filter 函数</span></span><br><span class="line">f = filter(<span class="keyword">lambda</span> x:x &gt; <span class="number">0</span>,data)</span><br><span class="line">print(list(f))</span><br></pre></td></tr></table></figure>
-<pre><code>[-6, 0, 4, -6, -7, 2, 9, -10, 2, 4]
-[4, 2, 9, 2, 4]
-[4, 2, 9, 2, 4]
-[4, 2, 9, 2, 4]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用字典生成式建立一个20人的字典</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">p = &#123;i:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</span><br><span class="line">print(p)</span><br><span class="line">p =&#123;<span class="number">1</span>: <span class="number">88</span>, <span class="number">2</span>: <span class="number">80</span>, <span class="number">3</span>: <span class="number">76</span>, <span class="number">4</span>: <span class="number">92</span>, <span class="number">5</span>: <span class="number">88</span>, <span class="number">6</span>: <span class="number">93</span>, <span class="number">7</span>: <span class="number">91</span>, <span class="number">8</span>: <span class="number">100</span>, <span class="number">9</span>: <span class="number">60</span>, <span class="number">10</span>: <span class="number">68</span>, <span class="number">11</span>: <span class="number">85</span>, <span class="number">12</span>: <span class="number">95</span>, <span class="number">13</span>: <span class="number">73</span>, <span class="number">14</span>: <span class="number">77</span>, <span class="number">15</span>: <span class="number">65</span>, <span class="number">16</span>: <span class="number">82</span>, <span class="number">17</span>: <span class="number">67</span>, <span class="number">18</span>: <span class="number">87</span>, <span class="number">19</span>: <span class="number">89</span>, <span class="number">20</span>: <span class="number">92</span>&#125;</span><br><span class="line"><span class="comment">#筛出字典中值高于90的项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">h = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> p.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">90</span>:</span><br><span class="line">        h[k] = p[k]</span><br><span class="line">print(h)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：字典解析</span></span><br><span class="line"></span><br><span class="line">g = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> p.items() <span class="keyword">if</span> v&gt;<span class="number">90</span>&#125;</span><br><span class="line">print(g)</span><br></pre></td></tr></table></figure>
-<pre><code>{1: 85, 2: 93, 3: 60, 4: 65, 5: 97, 6: 83, 7: 79, 8: 61, 9: 80, 10: 69, 11: 95, 12: 98, 13: 91, 14: 94, 15: 64, 16: 60, 17: 85, 18: 95, 19: 64, 20: 60}
-{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
-{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10个数的集合</span></span><br><span class="line">s = set([randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#筛出集合中能被3整除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">n = set()<span class="comment">#创建空集合</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">       n.add(i)</span><br><span class="line">print(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">w = set([i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>])</span><br><span class="line">w1 = &#123;i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>&#125;<span class="comment">#和字典解析的区别在于前面没有冒号</span></span><br><span class="line">print(w)</span><br><span class="line">print(w1)</span><br></pre></td></tr></table></figure>
-<pre><code>{2, 6, 9, -8, -7, -3, -1}
-{9, -3, 6}
-{9, -3, 6}
-{9, -3, 6}
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/filter_in_list_dict_set/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/frequency_in_list/"><span>How to get frequency of elements in list</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/frequency_in_list/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个随机序列</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">20</span>)]</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
-<pre><code>[2, 4, 7, 9, 0, 3, 9, 1, 5, 5, 3, 1, 6, 4, 2, 2, 3, 10, 9, 10]
-</code></pre><h2 id="方法一：统计出现频率-并筛选出现最多的3个元素"><a href="#方法一：统计出现频率-并筛选出现最多的3个元素" class="headerlink" title="方法一：统计出现频率,并筛选出现最多的3个元素"></a>方法一：统计出现频率,并筛选出现最多的3个元素</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法一：统计出现频率,并筛选出现最多的3个元素</span></span><br><span class="line">data = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#统计频率</span></span><br><span class="line">f = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> f:</span><br><span class="line">        f[i] = <span class="number">0</span></span><br><span class="line">    f[i] += <span class="number">1</span></span><br><span class="line">print(f)</span><br><span class="line"></span><br><span class="line"><span class="comment">#排序，筛选</span></span><br><span class="line"></span><br><span class="line">rank = sorted(f.items(),key = <span class="keyword">lambda</span> x:x[<span class="number">1</span>],reverse = <span class="keyword">True</span>)</span><br><span class="line">print(rank[:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>{2: 3, 4: 2, 7: 1, 9: 3, 0: 1, 3: 3, 1: 2, 5: 2, 6: 1, 10: 2}
-[(2, 3), (9, 3), (3, 3)]
-</code></pre><h2 id="方法二：用-Python-字典-fromkeys-函数"><a href="#方法二：用-Python-字典-fromkeys-函数" class="headerlink" title="方法二：用 Python 字典 fromkeys() 函数"></a>方法二：用 Python 字典 fromkeys() 函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#方法二：用 Python 字典 fromkeys() 函数用于创建一个新字典，以序列seq中元素做字典的键，value为字典所有键对应的初始值。</span></span><br><span class="line">d = dict.fromkeys(data,<span class="number">0</span>) </span><br><span class="line">print(d)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    d[i] += <span class="number">1</span></span><br><span class="line">print(d)</span><br><span class="line"><span class="comment">#使用 collections.Counter, Counter类的目的是用来跟踪值出现的次数。它是一个无序的容器类型，以字典的键值对形式存储，其中元素作为key，其计数作为value。计数值可以是任意的Interger（包括0和负数）</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">c = Counter(d)</span><br><span class="line">print(c)</span><br><span class="line">m = c.most_common(<span class="number">3</span>) <span class="comment"># Counter.most_common(n)方法得到频率最高的n个元素的列表</span></span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
-<pre><code>{2: 0, 4: 0, 7: 0, 9: 0, 0: 0, 3: 0, 1: 0, 5: 0, 6: 0, 10: 0}
-{2: 3, 4: 2, 7: 1, 9: 3, 0: 1, 3: 3, 1: 2, 5: 2, 6: 1, 10: 2}
-Counter({2: 3, 9: 3, 3: 3, 4: 2, 1: 2, 5: 2, 10: 2, 7: 1, 0: 1, 6: 1})
-[(2, 3), (9, 3), (3, 3)]
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/frequency_in_list/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/is_==/"><span>is and ==</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/is_==/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="python中的比较、相等性"><a href="#python中的比较、相等性" class="headerlink" title="python中的比较、相等性"></a>python中的比较、相等性</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L2 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L3 = L1</span><br><span class="line">print(L1 == L2, L1 <span class="keyword">is</span> L2)</span><br><span class="line">print(L1 == L3, L1 <span class="keyword">is</span> L3)</span><br></pre></td></tr></table></figure>
-<pre><code>True False
-True True
-</code></pre><p>==测试两个对象值的相等性，即递归的比较所有内嵌对象；值是否相等</p>
-<p>is 测试两个对象的一致性，即是否是在一个内存空间。内存地址是否一致</p>
-<h1 id="真值问题"><a href="#真值问题" class="headerlink" title="真值问题"></a>真值问题</h1><p>Python把任意的空数据结构视为假，把任何非空数据结构视为真</p>
-<p>使用None，一般都起到一个空的占位符的作用，在真值判断的时候为false</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="keyword">None</span>] * <span class="number">10</span></span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
-<pre><code>[None, None, None, None, None, None, None, None, None, None]
-</code></pre><p>内置bool函数可以测试一个对象是真还是假</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(bool([<span class="number">1</span>,<span class="number">2</span>]))</span><br><span class="line">print(bool())</span><br><span class="line">print(bool(<span class="keyword">True</span>))</span><br><span class="line">print(bool(<span class="keyword">None</span>))</span><br><span class="line">print(bool(<span class="string">'abcde'</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>True
-False
-True
-False
-True
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Topics/">Topics</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Topics/">Topics</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/is_==/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/module_package/"><span>Module and Package in Python</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/module_package/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module 模块"></a>Module 模块</h1><p>模块是一个.py文件</p>
-<p>导入模块的方法以及调用相应模块中的方法（函数），类，属性，如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> modname</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入模块中特定的方法</span></span><br><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> itemname</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#导入模块中全部方法</span></span><br><span class="line"><span class="keyword">from</span> modname <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">itemname</span><br><span class="line"><span class="comment">#注意：导入所有除了以一个下划线( _ )开头的所有方法)</span></span><br></pre></td></tr></table></figure>
-<p>Pycache 下的 XXX.pyc 编译文件只有在模块中import 或者 from … import 才会保存</p>
-<p>Python XXX.py  运行是不会产生 Pycache!</p>
-<h1 id="模块的搜索路径"><a href="#模块的搜索路径" class="headerlink" title="模块的搜索路径"></a>模块的搜索路径</h1><p>当你导入一个模块，Python 解析器对模块位置的搜索顺序是：</p>
-<p>1、当前目录</p>
-<p>2、如果不在当前目录，Python 则搜索在 shell 变量 PYTHONPATH 下的每个目录。</p>
-<p>3、如果都找不到，Python会察看默认路径。UNIX下，默认路径一般为/usr/local/lib/python/。</p>
-<p>模块搜索路径存储在 system 模块的 sys.path 变量中。变量里包含当前目录，PYTHONPATH和由安装过程决定的默认目录。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(sys.path) <span class="comment">#返回的是列表</span></span><br><span class="line">sys.path.append(<span class="string">''</span>) <span class="comment">#添加到搜索路径中</span></span><br></pre></td></tr></table></figure>
-<pre><code>[&apos;&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\python36.zip&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\DLLs&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib\\site-packages&apos;, &apos;c:\\users\\win7\\appdata\\local\\programs\\python\\python36\\lib\\site-packages\\IPython\\extensions&apos;, &apos;C:\\Users\\Win7\\.ipython&apos;]
-</code></pre><h1 id="from-modname-import"><a href="#from-modname-import" class="headerlink" title="from modname import *"></a>from modname import *</h1><p>用用引用模块中所有函数,类,变量</p>
-<p>如果想用*通配符，又不想引用模块中的所有变量，可以在模块中用变量<strong>all</strong>进行限制，添加想引用的函数,类,变量。</p>
-<h1 id="Package-包"><a href="#Package-包" class="headerlink" title="Package 包"></a>Package 包</h1><p>包就目录中包含 <strong>init</strong>.py 文件。</p>
-<p>通常是使用用“圆点模块名”的结构化模块命名空间，例如 A.B模块表示 A包中名为B的子模块</p>
-<p>导入包中模块的方法以及调用相应模块中的方法（函数），类，属性，如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package.subpackage.modname</span><br><span class="line">package.subpackage.modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> package.subpackage <span class="keyword">import</span> modname</span><br><span class="line">modname.itemname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> package.subpackage.modname <span class="keyword">import</span> itemname</span><br><span class="line">itemname</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<p>使用 from package import item 方式导入包时，这个子项（item）既可以是包中的一个子模块（或一个子包），也可以是包中定义的其它命名，像函数、类或变量。</p>
-<p>from package import item<br>(其中，item 可是使一个子包/一个子模块/包中定义的函数，类或变量)</p>
-<p>使用类似 import item.subitem.subsubitem 这样的语法时，这些子项必须是包，最后的子项可以是包或模块，但不能是前面子项中定义的类、函数或变量。</p>
-<p>import item.subitem.subsubitem<br>(其中每一项，除了最后一项，必须是包；<br> 最后一项，可以是模块/包，不可以是前面一项即包中定义的类、函数或变量)</p>
-<h1 id="from-package-import"><a href="#from-package-import" class="headerlink" title="from package import *"></a>from package import *</h1><p>以为会导入所有的子模块，不会，而且会出问题</p>
-<p>所以执行 from package import * 时，在包中的 <strong>init</strong>.py 代码定义一个名为 <strong>all</strong> 的列表，把需要的模块名加入列表，就会按照列表中给出的模块名进行导入。</p>
-<h1 id="包内引用"><a href="#包内引用" class="headerlink" title="包内引用"></a>包内引用</h1><p>如果包中使用了子包结构（就像示例中的 project 包），导入子模块两种方式：绝对导入和相对导入</p>
-<p>在同一个包中，用相对导入更方便<br>在不同包中，用绝对导入更方便，前提是没有很多层子包</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">project/                          <span class="comment">#Top-level package</span></span><br><span class="line">      __init__.py               <span class="comment">#Initialize the package</span></span><br><span class="line">      A/                  <span class="comment">#Subpackage for projcet A</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PA.py</span><br><span class="line">              ...</span><br><span class="line">      B/                  <span class="comment">#Subpackage for project B</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PB.py</span><br><span class="line">              PB2.py</span><br><span class="line">              ...</span><br><span class="line">      C/                  <span class="comment">#Subpackage for project C</span></span><br><span class="line">              __init__.py</span><br><span class="line">              PC.py</span><br><span class="line">              ...</span><br></pre></td></tr></table></figure>
-<p>绝对导入</p>
-<p>在 PB.py 中导入不同包C中的PC.py 模块</p>
-<p>from project.C. import PC</p>
-<p>相对导入</p>
-<p>以 PB.py 为例（基于当前模块的相对位置）</p>
-<p>from . import PB2 (.表示当前包，在 PB.py 中导入同一个包中的 PB2.py 模块)</p>
-<p>from ..C import PC.py(..表示上级包project，..C 表示上级包project下的C包,在 PB.py 中导入不同包C中的PC.py 模块)</p>
-<p>from ..import A (在 PB.py 中导入上级包project包中的子包A)</p>
-<p>前面的知识点<br>from package import item<br>(其中，item 可以是一个子包/一个子模块/包中定义的函数，类或变量)</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Topics/">Topics</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Topics/">Topics</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/module_package/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/Telegram/"><span>How to Scrape All ETH Addresses from A Certain Telegram Chat</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/Telegram/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="First-attempt-Telethon-doesn’t-work"><a href="#First-attempt-Telethon-doesn’t-work" class="headerlink" title="First attempt: Telethon (doesn’t work)"></a>First attempt: Telethon (doesn’t work)</h2><p>Telegram is a popular messaging application. This library is meant to make it easy for you to write Python programs that can interact with Telegram. </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Creating a client</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> telethon <span class="keyword">import</span> TelegramClient</span><br><span class="line"><span class="keyword">import</span> socks</span><br><span class="line"></span><br><span class="line">api_id = <span class="number">240869</span></span><br><span class="line">api_hash= <span class="string">'2e5e8cb9cda41113da881a986271029d'</span></span><br><span class="line"></span><br><span class="line">client = TelegramClient(<span class="string">'sqlite3'</span>,api_id,api_hash,proxy=(socks.SOCKS5,<span class="string">'localhost'</span>,<span class="number">1080</span>))</span><br><span class="line">client.connect()</span><br><span class="line">phone_number = <span class="string">'8613480975957'</span></span><br><span class="line">client.send_code_request(phone_number)</span><br><span class="line">myself = client.sign_in(phone_number,input(<span class="string">'Enter code:'</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>Enter code:5603960942
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Doing stuff</span></span><br><span class="line"></span><br><span class="line">Naus = client.get_entity(<span class="string">'t.me/NausGlobal'</span>)</span><br><span class="line">print(Naus)</span><br></pre></td></tr></table></figure>
-<pre><code>Channel(id=1249144664, title=&apos;Naus.io_Global&apos;, photo=ChatPhoto(photo_small=FileLocation(dc_id=5, volume_id=852712166, local_id=188596, secret=6383482124705140361), photo_big=FileLocation(dc_id=5, volume_id=852712166, local_id=188598, secret=7217383776991144713)), date=datetime.utcfromtimestamp(1523907796), version=0, creator=False, left=False, editor=False, broadcast=False, verified=False, megagroup=True, restricted=False, democracy=True, signatures=False, min=False, access_hash=-9112681265137568112, username=&apos;NausGlobal&apos;, restriction_reason=None, admin_rights=None, banned_rights=None, participants_count=None)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line">ID = <span class="string">r', (.+) \['</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        print(line)</span><br><span class="line">        <span class="keyword">if</span> re.search(ID,line):</span><br><span class="line">            <span class="comment">#username = re.search(name,line)</span></span><br><span class="line">            time = re.search(date,line)</span><br><span class="line">            Telid = re.search(ID,line)</span><br><span class="line">            print(<span class="string">'---------------------------'</span>)</span><br><span class="line">            <span class="comment">#print(username.group(1))</span></span><br><span class="line">            print(time.group())</span><br><span class="line">            print(Telid.group(<span class="number">1</span>))</span><br><span class="line">            print(<span class="string">'---------------------------'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>﻿.....11.03.2018 16:15:50, carl cui [@cuiyysw]: &gt;&gt;upgraded the group to a supergroup&lt;&lt;
-
----------------------------
-11.03.2018 16:15:50
-carl cui
----------------------------
-.....11.03.2018 16:18:02, carl cui [@cuiyysw]: &gt;&gt;changed group name to &quot;Naus.io_Global&quot;&lt;&lt;
-
----------------------------
-11.03.2018 16:18:02
-carl cui
----------------------------
-.....11.03.2018 23:29:14, carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿 [@loloplay]&lt;&lt;
-
----------------------------
-11.03.2018 23:29:14
-carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿
----------------------------
-.....12.03.2018 21:58:00, Den: &gt;&gt;joined the group&lt;&lt;
-
-.....12.03.2018 21:58:49, Федя [@Ovod13]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 21:58:49
-Федя
----------------------------
-12.03.2018 21:59:54, Den: Арим
-
-.....12.03.2018 22:00:30, Den: &gt;&gt;left the group&lt;&lt;
-
-.....12.03.2018 22:01:07, Nata [@Nataly9900]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:01:07
-Nata
----------------------------
-.....12.03.2018 22:01:16, Sergey Lizunov [@strahara]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:01:16
-Sergey Lizunov
----------------------------
-12.03.2018 22:02:03, Sergey Lizunov [@strahara]: 0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F
-
----------------------------
-12.03.2018 22:02:03
-Sergey Lizunov
----------------------------
-.....12.03.2018 22:03:47, Van Pham [@vanphamn]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:03:47
-Van Pham
----------------------------
-12.03.2018 22:03:52, Van Pham [@vanphamn]: 0x4907d01FAD88F4c5F4fF0c6877328b9234FBcef5
-
----------------------------
-12.03.2018 22:03:52
-Van Pham
----------------------------
-.....12.03.2018 22:05:44, Денис Назаров [@Astroden]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:05:44
-Денис Назаров
----------------------------
-.....12.03.2018 22:05:54, SAJIB MAX [@sajibmax113]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:05:54
-SAJIB MAX
----------------------------
-.....12.03.2018 22:06:00, Jean Nguessan [@Jeanlenoir]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:06:00
-Jean Nguessan
----------------------------
-.....12.03.2018 22:06:32, vu khuong: &gt;&gt;joined the group&lt;&lt;
-
-12.03.2018 22:06:41, vu khuong: 0x2c3c4ED46A54f3107CFDfC9CBf95C4dFAc3487E2
-
-.....12.03.2018 22:07:47, Степан Рязанов [@m171pe]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:07:47
-Степан Рязанов
----------------------------
-12.03.2018 22:07:50, 小魔女 灵儿 [@loloplay]: HI ALL，Thank you for your participation. Our event has just ended. If you are interested in our next NAB token reward, please join our Telegram group or WeChat group for more information. （
-
----------------------------
-12.03.2018 22:07:50
-小魔女 灵儿
----------------------------
-.....12.03.2018 22:08:23, 小魔女 灵儿 [@loloplay]: &gt;&gt;unsupported service message type: messageActionPinMessage&lt;&lt;
-
----------------------------
-12.03.2018 22:08:23
-小魔女 灵儿
----------------------------
-.....12.03.2018 22:08:38, Sergey Lizunov [@strahara]: &gt;&gt;left the group&lt;&lt;
-
----------------------------
-12.03.2018 22:08:38
-Sergey Lizunov
----------------------------
-.....12.03.2018 22:11:02, Andrey Mishin [@Zoar1975]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:11:02
-Andrey Mishin
----------------------------
-12.03.2018 22:11:18, Andrey Mishin [@Zoar1975]: 0xb72bf806bf1b11d955f84a0871f158322987e3c8
-
----------------------------
-12.03.2018 22:11:18
-Andrey Mishin
----------------------------
-.....12.03.2018 22:11:20, raju malakomda [@malakomda]: &gt;&gt;joined the group&lt;&lt;
-
----------------------------
-12.03.2018 22:11:20
-raju malakomda
----------------------------
-12.03.2018 22:11:21, SAJIB MAX [@sajibmax113]: thanks
----------------------------
-12.03.2018 22:11:21
-SAJIB MAX
----------------------------
-</code></pre><h2 id="Second-Attempt-Chrome-extension-to-save-telegram-chat-history-works-well"><a href="#Second-Attempt-Chrome-extension-to-save-telegram-chat-history-works-well" class="headerlink" title="Second Attempt: Chrome extension to save telegram chat history (works well)"></a>Second Attempt: Chrome extension to save telegram chat history (works well)</h2><p>Dumps your Telegram chat history with an active peer to plaintext.<br>Perhaps, many of us like Telegram messenger and use it for conversations with friends. However, we were a bit disappointed by the absence of any sort of easy-accessible “Save Conversation” feature in the messenger. Therefore, we’ve written a Chrome extension for it! More info at <a href="https://github.com/pigpagnet/save-telegram-chat-history" target="_blank" rel="noopener">https://github.com/pigpagnet/save-telegram-chat-history</a>.</p>
-<p><a href="https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc?utm_source=www.crx4chrome.com" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/save-telegram-chat-histor/kgldnbjoeinkkgpphaaljlfhfdbndfjc?utm_source=www.crx4chrome.com</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test to get name</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">text = <span class="string">r'12.03.2018 22:03:52, Van Pham [@vanphamn]: 0x4907d01FAD88F4c5F4fF0c6877328b9234FBcef5'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">print(re.search(name,text).group(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>vanphamn
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test to get Eth address</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">text = <span class="string">'''Your Telegram History in "Naus.io_Global [@NausGlobal]"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">.....11.03.2018 16:15:50, carl cui [@cuiyysw]: &gt;&gt;upgraded the group to a supergroup&lt;&lt;</span></span><br><span class="line"><span class="string">.....11.03.2018 16:18:02, carl cui [@cuiyysw]: &gt;&gt;changed group name to "Naus.io_Global"&lt;&lt;</span></span><br><span class="line"><span class="string">.....11.03.2018 23:29:14, carl cui [@cuiyysw]: &gt;&gt;invited 小魔女 灵儿 [@loloplay]&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 21:58:00, Den: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 21:58:49, Федя [@Ovod13]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">12.03.2018 21:59:54, Den: Арим</span></span><br><span class="line"><span class="string">.....12.03.2018 22:00:30, Den: &gt;&gt;left the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 22:01:07, Nata [@Nataly9900]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">.....12.03.2018 22:01:16, Sergey Lizunov [@strahara]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">12.03.2018 22:02:03, Sergey Lizunov [@strahara]: 0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F</span></span><br><span class="line"><span class="string">.....12.03.2018 22:03:47, Van Pham [@vanphamn]: &gt;&gt;joined the group&lt;&lt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">content = text.split(<span class="string">'\n'</span>)</span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> content:</span><br><span class="line">    <span class="keyword">if</span> re.search(address,i):</span><br><span class="line">            eth = re.search(address,i)</span><br><span class="line">            print(eth)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;_sre.SRE_Match object; span=(49, 91), match=&apos;0xfa7c4fe34cEA9289f97bED26f7106AcB3523001F&apos;&gt;
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first try</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name = <span class="string">r'\[@([a-z0-9A-Z]+)\]'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line">ID = <span class="string">r', (.+) \['</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram_group_history__Naus.io_Global [@NausGlobal]_from20180311-1615_to20180504-1504__downloaded2018_05_04--18-22-55.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'telegram20180504.csv'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> w: </span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">            <span class="keyword">if</span> re.search(address,line) <span class="keyword">and</span> re.search(name,line):</span><br><span class="line">                eth = re.search(address,line).group()</span><br><span class="line">                username = re.search(name,line).group(<span class="number">1</span>)</span><br><span class="line">                time = re.search(date,line).group()</span><br><span class="line">                telid = re.search(ID,line).group(<span class="number">1</span>)</span><br><span class="line">                w.write(<span class="string">'&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;\n'</span>.format(time,telid,username,eth))</span><br><span class="line">print(<span class="string">'The End'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>The End
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first try has bug in name, it will not get chat of users who have set usernames</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">n1 =<span class="string">'02.05.2018 15:07:00, wu long: 0xb1A45043Ed0aDABc6e2F658BaE0eb8EA4d311294'</span></span><br><span class="line">n2 =<span class="string">'.....02.05.2018 15:08:07, Yasin Kartal [@yasinnkrtl]: &gt;&gt;joined the group&lt;&lt;'</span></span><br><span class="line">name = <span class="string">r',(.+):'</span></span><br><span class="line">print(re.search(name,n1).group(<span class="number">1</span>).strip())</span><br><span class="line">print(re.search(name,n2).group(<span class="number">1</span>).strip())</span><br></pre></td></tr></table></figure>
-<pre><code>wu long
-Yasin Kartal [@yasinnkrtl]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># second try</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">address = <span class="string">r'(0x[a-z0-9A-Z]&#123;40&#125;)'</span></span><br><span class="line">name =  <span class="string">r',(.+):'</span></span><br><span class="line">date = <span class="string">r'\d&#123;2&#125;\.\d&#123;2&#125;\.\d&#123;4&#125; \d&#123;2&#125;\:\d&#123;2&#125;\:\d&#123;2&#125;'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">r'telegram_group_history__Naus.io_Global [@NausGlobal]_from20180311-1615_to20180504-1504__downloaded2018_05_04--18-22-55.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'telegram20180505.csv'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> w: </span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">            <span class="keyword">if</span> re.search(address,line)<span class="keyword">and</span> re.search(name,line):</span><br><span class="line">                eth = re.search(address,line).group()</span><br><span class="line">                username = re.search(name,line).group(<span class="number">1</span>)</span><br><span class="line">                time = re.search(date,line).group()</span><br><span class="line">                w.write(<span class="string">'&#123;&#125;,&#123;&#125;,&#123;&#125;\n'</span>.format(time,username,eth))</span><br><span class="line">print(<span class="string">'The End'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>The End
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Spider/">Spider</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Spider/">Spider</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/Telegram/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/sort_value_in_dict/"><span>How to sort value in dict</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/sort_value_in_dict/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="comment">#建一个字典</span></span><br><span class="line">data = &#123;x: randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">'xyzabc'</span>&#125; <span class="comment">#字典推导式</span></span><br><span class="line">print(data)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">sorted(data)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;x&apos;: 74, &apos;y&apos;: 90, &apos;z&apos;: 64, &apos;a&apos;: 79, &apos;b&apos;: 79, &apos;c&apos;: 99}
-
-
-
-
-
-[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;]
-</code></pre><h2 id="第一种方法-sorted"><a href="#第一种方法-sorted" class="headerlink" title="第一种方法 sorted"></a>第一种方法 sorted</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一种方法 sorted</span></span><br><span class="line">v = sorted(data.items(),key = <span class="keyword">lambda</span> x:x[<span class="number">1</span>])</span><br><span class="line">v</span><br></pre></td></tr></table></figure>
-<pre><code>[(&apos;z&apos;, 64), (&apos;x&apos;, 74), (&apos;a&apos;, 79), (&apos;b&apos;, 79), (&apos;y&apos;, 90), (&apos;c&apos;, 99)]
-</code></pre><h2 id="第二种方法-zip-sorted"><a href="#第二种方法-zip-sorted" class="headerlink" title="第二种方法 zip+sorted"></a>第二种方法 zip+sorted</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第二种方法 zip+sorted</span></span><br><span class="line"></span><br><span class="line">n = data.keys()</span><br><span class="line">s = data.values()</span><br><span class="line">i = data.items()</span><br></pre></td></tr></table></figure>
-<pre><code>dict_items([(&apos;x&apos;, 74), (&apos;y&apos;, 90), (&apos;z&apos;, 64), (&apos;a&apos;, 79), (&apos;b&apos;, 79), (&apos;c&apos;, 99)])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip(s,n)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;zip at 0x10d40bf08&gt;
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = list(zip(data.values(),data.keys()))</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
-<pre><code>[(74, &apos;x&apos;), (90, &apos;y&apos;), (64, &apos;z&apos;), (79, &apos;a&apos;), (79, &apos;b&apos;), (99, &apos;c&apos;)]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(l)</span><br></pre></td></tr></table></figure>
-<pre><code>[(64, &apos;z&apos;), (74, &apos;x&apos;), (79, &apos;a&apos;), (79, &apos;b&apos;), (90, &apos;y&apos;), (99, &apos;c&apos;)]
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/sort_value_in_dict/#comment">Comments</a>
         </span>
       </span>
     </div>
@@ -1170,6 +198,596 @@ Yasin Kartal [@yasinnkrtl]
         <i class="icon-comments"></i>
         <span>
           <a href="/2018/05/07/PythonChallenge/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/dict_commonkey/"><span>How to find common keys in dict</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/dict_commonkey/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="字典生产式"><a href="#字典生产式" class="headerlink" title="字典生产式"></a>字典生产式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint,sample </span><br><span class="line"><span class="comment"># random.sample(sequence, k)，从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。</span></span><br><span class="line">s1 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s2 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s3 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">print(s1)</span><br><span class="line">print(s2)</span><br><span class="line">print(s3)</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;d&apos;: 4, &apos;a&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
+{&apos;c&apos;: 4, &apos;b&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
+{&apos;e&apos;: 3, &apos;c&apos;: 4, &apos;d&apos;: 3, &apos;a&apos;: 3}
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/commonkey/">commonkey</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/dict_commonkey/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/filter_in_list_dict_set/"><span>How to filter in list,set and dict</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/filter_in_list_dict_set/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="过滤掉列表中的负数【列表的三种方法】"><a href="#过滤掉列表中的负数【列表的三种方法】" class="headerlink" title="过滤掉列表中的负数【列表的三种方法】"></a>过滤掉列表中的负数【列表的三种方法】</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10到-10之间随机列表</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">c = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        c.append(i)</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">d = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &gt; <span class="number">0</span>]</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法三：filter 函数</span></span><br><span class="line">f = filter(<span class="keyword">lambda</span> x:x &gt; <span class="number">0</span>,data)</span><br><span class="line">print(list(f))</span><br></pre></td></tr></table></figure>
+<pre><code>[-6, 0, 4, -6, -7, 2, 9, -10, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用字典生成式建立一个20人的字典</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">p = &#123;i:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</span><br><span class="line">print(p)</span><br><span class="line">p =&#123;<span class="number">1</span>: <span class="number">88</span>, <span class="number">2</span>: <span class="number">80</span>, <span class="number">3</span>: <span class="number">76</span>, <span class="number">4</span>: <span class="number">92</span>, <span class="number">5</span>: <span class="number">88</span>, <span class="number">6</span>: <span class="number">93</span>, <span class="number">7</span>: <span class="number">91</span>, <span class="number">8</span>: <span class="number">100</span>, <span class="number">9</span>: <span class="number">60</span>, <span class="number">10</span>: <span class="number">68</span>, <span class="number">11</span>: <span class="number">85</span>, <span class="number">12</span>: <span class="number">95</span>, <span class="number">13</span>: <span class="number">73</span>, <span class="number">14</span>: <span class="number">77</span>, <span class="number">15</span>: <span class="number">65</span>, <span class="number">16</span>: <span class="number">82</span>, <span class="number">17</span>: <span class="number">67</span>, <span class="number">18</span>: <span class="number">87</span>, <span class="number">19</span>: <span class="number">89</span>, <span class="number">20</span>: <span class="number">92</span>&#125;</span><br><span class="line"><span class="comment">#筛出字典中值高于90的项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">h = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> p.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">90</span>:</span><br><span class="line">        h[k] = p[k]</span><br><span class="line">print(h)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：字典解析</span></span><br><span class="line"></span><br><span class="line">g = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> p.items() <span class="keyword">if</span> v&gt;<span class="number">90</span>&#125;</span><br><span class="line">print(g)</span><br></pre></td></tr></table></figure>
+<pre><code>{1: 85, 2: 93, 3: 60, 4: 65, 5: 97, 6: 83, 7: 79, 8: 61, 9: 80, 10: 69, 11: 95, 12: 98, 13: 91, 14: 94, 15: 64, 16: 60, 17: 85, 18: 95, 19: 64, 20: 60}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10个数的集合</span></span><br><span class="line">s = set([randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#筛出集合中能被3整除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">n = set()<span class="comment">#创建空集合</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">       n.add(i)</span><br><span class="line">print(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">w = set([i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>])</span><br><span class="line">w1 = &#123;i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>&#125;<span class="comment">#和字典解析的区别在于前面没有冒号</span></span><br><span class="line">print(w)</span><br><span class="line">print(w1)</span><br></pre></td></tr></table></figure>
+<pre><code>{2, 6, 9, -8, -7, -3, -1}
+{9, -3, 6}
+{9, -3, 6}
+{9, -3, 6}
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/filter/">filter</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/filter_in_list_dict_set/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/frequency_in_list/"><span>How to get frequency of elements in list</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/frequency_in_list/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个随机序列</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">20</span>)]</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/frquency/">frquency</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/frequency_in_list/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/is_==/"><span>is and ==</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/is_==/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="python中的比较、相等性"><a href="#python中的比较、相等性" class="headerlink" title="python中的比较、相等性"></a>python中的比较、相等性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L2 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L3 = L1</span><br><span class="line">print(L1 == L2, L1 <span class="keyword">is</span> L2)</span><br><span class="line">print(L1 == L3, L1 <span class="keyword">is</span> L3)</span><br></pre></td></tr></table></figure>
+<pre><code>True False
+True True
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/is/">is</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/is_==/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/module_package/"><span>Module and Package in Python</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/module_package/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module 模块"></a>Module 模块</h2><p>模块是一个.py文件</p>
+<p>导入模块的方法以及调用相应模块中的方法（函数），类，属性，如下</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/module/">module</a><a href="/tags/package/">package</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/module_package/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/Telegram/"><span>How to Scrape All ETH Addresses from A Certain Telegram Chat</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/Telegram/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="First-attempt-Telethon-doesn’t-work"><a href="#First-attempt-Telethon-doesn’t-work" class="headerlink" title="First attempt: Telethon (doesn’t work)"></a>First attempt: Telethon (doesn’t work)</h2><p>Telegram is a popular messaging application. This library is meant to make it easy for you to write Python programs that can interact with Telegram. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Creating a client</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> telethon <span class="keyword">import</span> TelegramClient</span><br><span class="line"><span class="keyword">import</span> socks</span><br><span class="line"></span><br><span class="line">api_id = <span class="number">240869</span></span><br><span class="line">api_hash= <span class="string">'2e5e8cb9cda41113da881a986271029d'</span></span><br><span class="line"></span><br><span class="line">client = TelegramClient(<span class="string">'sqlite3'</span>,api_id,api_hash,proxy=(socks.SOCKS5,<span class="string">'localhost'</span>,<span class="number">1080</span>))</span><br><span class="line">client.connect()</span><br><span class="line">phone_number = <span class="string">'8613480975957'</span></span><br><span class="line">client.send_code_request(phone_number)</span><br><span class="line">myself = client.sign_in(phone_number,input(<span class="string">'Enter code:'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>Enter code:5603960942
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Spider/">Spider</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Telegram/">Telegram</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/Telegram/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/named_tuple/"><span>What does named tuple do?</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/named_tuple/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">student=(<span class="string">'Jim'</span>,<span class="string">'16'</span>,<span class="string">'male'</span>,<span class="string">'Jim123@qq.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">print(student[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line">print(student[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># sex</span></span><br><span class="line">print(student[<span class="number">2</span>])</span><br><span class="line">    </span><br><span class="line"><span class="comment">#email</span></span><br><span class="line">print(student[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用元祖的下标索引来访问元组中的值，0，1，2，3名字没有意义</span></span><br></pre></td></tr></table></figure>
+<pre><code>Jim
+16
+male
+Jim123@qq.com
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Skills/">Skills</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/named_tuple/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/sort_value_in_dict/"><span>How to sort value in dict</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/sort_value_in_dict/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="comment">#建一个字典</span></span><br><span class="line">data = &#123;x: randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">'xyzabc'</span>&#125; <span class="comment">#字典推导式</span></span><br><span class="line">print(data)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">sorted(data)</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;x&apos;: 74, &apos;y&apos;: 90, &apos;z&apos;: 64, &apos;a&apos;: 79, &apos;b&apos;: 79, &apos;c&apos;: 99}
+
+
+
+
+
+[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;]
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Skills/">Skills</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/dict/">dict</a><a href="/tags/value/">value</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/sort_value_in_dict/#comment">Comments</a>
         </span>
       </span>
     </div>

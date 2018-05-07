@@ -88,12 +88,13 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="python中的比较、相等性"><a href="#python中的比较、相等性" class="headerlink" title="python中的比较、相等性"></a>python中的比较、相等性</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L2 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L3 = L1</span><br><span class="line">print(L1 == L2, L1 <span class="keyword">is</span> L2)</span><br><span class="line">print(L1 == L3, L1 <span class="keyword">is</span> L3)</span><br></pre></td></tr></table></figure>
+        <h2 id="python中的比较、相等性"><a href="#python中的比较、相等性" class="headerlink" title="python中的比较、相等性"></a>python中的比较、相等性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">L1 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L2 = [<span class="number">1</span>,<span class="number">2</span>,[<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br><span class="line">L3 = L1</span><br><span class="line">print(L1 == L2, L1 <span class="keyword">is</span> L2)</span><br><span class="line">print(L1 == L3, L1 <span class="keyword">is</span> L3)</span><br></pre></td></tr></table></figure>
 <pre><code>True False
 True True
-</code></pre><p>==测试两个对象值的相等性，即递归的比较所有内嵌对象；值是否相等</p>
+</code></pre><a id="more"></a>
+<p>==测试两个对象值的相等性，即递归的比较所有内嵌对象；值是否相等</p>
 <p>is 测试两个对象的一致性，即是否是在一个内存空间。内存地址是否一致</p>
-<h1 id="真值问题"><a href="#真值问题" class="headerlink" title="真值问题"></a>真值问题</h1><p>Python把任意的空数据结构视为假，把任何非空数据结构视为真</p>
+<h2 id="真值问题"><a href="#真值问题" class="headerlink" title="真值问题"></a>真值问题</h2><p>Python把任意的空数据结构视为假，把任何非空数据结构视为真</p>
 <p>使用None，一般都起到一个空的占位符的作用，在真值判断的时候为false</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">L = [<span class="keyword">None</span>] * <span class="number">10</span></span><br><span class="line">print(L)</span><br></pre></td></tr></table></figure>
 <pre><code>[None, None, None, None, None, None, None, None, None, None]
@@ -127,7 +128,7 @@ True
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Topics/">Topics</a>
+        <a href="/tags/is/">is</a>
     </span>
     
 

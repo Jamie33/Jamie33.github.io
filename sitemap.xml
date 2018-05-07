@@ -2,93 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/05/07/dict_commonkey/</loc>
+    <loc>http://yoursite.com/2018/05/07/is_==/</loc>
     
-    <lastmod>2018-05-07T08:38:58.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/07/frequency_in_list/</loc>
-    
-    <lastmod>2018-05-07T08:38:19.265Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/07/filter_in_list_dict_set/</loc>
-    
-    <lastmod>2018-05-07T08:36:36.269Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/07/named_tuple/</loc>
-    
-    <lastmod>2018-05-07T08:34:57.553Z</lastmod>
+    <lastmod>2018-05-07T08:54:33.034Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/05/07/sort_value_in_dict/</loc>
     
-    <lastmod>2018-05-07T08:33:07.654Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/07/is_==/</loc>
-    
-    <lastmod>2018-05-07T08:25:41.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/07/Iterable_Iterator/</loc>
-    
-    <lastmod>2018-05-07T08:24:01.473Z</lastmod>
+    <lastmod>2018-05-07T08:53:38.423Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/05/07/module_package/</loc>
     
-    <lastmod>2018-05-07T08:22:06.494Z</lastmod>
+    <lastmod>2018-05-07T08:53:08.697Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/05/07/Telegram/</loc>
+    <loc>http://yoursite.com/2018/05/07/Iterable_Iterator/</loc>
     
-    <lastmod>2018-05-07T08:18:26.676Z</lastmod>
+    <lastmod>2018-05-07T08:52:39.662Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/named_tuple/</loc>
+    
+    <lastmod>2018-05-07T08:52:03.157Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/05/07/PythonChallenge/</loc>
     
-    <lastmod>2018-05-07T07:37:30.266Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/27/shallowcopy_deepcopy/</loc>
-    
-    <lastmod>2018-05-07T07:36:24.998Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/26/scope/</loc>
-    
-    <lastmod>2018-05-07T07:36:16.737Z</lastmod>
+    <lastmod>2018-05-07T08:48:37.212Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/04/27/regex/</loc>
     
-    <lastmod>2018-05-07T07:36:02.906Z</lastmod>
+    <lastmod>2018-05-07T08:48:31.281Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/26/scope/</loc>
+    
+    <lastmod>2018-05-07T08:48:23.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/27/shallowcopy_deepcopy/</loc>
+    
+    <lastmod>2018-05-07T08:48:17.012Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/04/27/mutable_immutable/</loc>
+    
+    <lastmod>2018-05-07T08:47:01.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/frequency_in_list/</loc>
+    
+    <lastmod>2018-05-07T08:46:40.407Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/dict_commonkey/</loc>
+    
+    <lastmod>2018-05-07T08:46:24.697Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/filter_in_list_dict_set/</loc>
+    
+    <lastmod>2018-05-07T08:46:14.463Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/05/07/Telegram/</loc>
+    
+    <lastmod>2018-05-07T08:46:07.202Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-05-03T10:38:26.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/27/mutable_immutable/</loc>
-    
-    <lastmod>2018-04-28T02:24:35.920Z</lastmod>
     
   </url>
   
