@@ -6,7 +6,7 @@
 title: Jamie's Blog
 subtitle: Talk is cheap, show me the code.
 description: Life is short, I use Python.
-keywords:
+keywords: Jamie
 author: Jamie
 language: 
 timezone:
@@ -87,7 +87,7 @@ theme_config:
     Archives: /archives
     Categories: /categories
     GitHub: https://github.com/Jamie33
-    RSS: /atom.xml
+    #RSS: /atom.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

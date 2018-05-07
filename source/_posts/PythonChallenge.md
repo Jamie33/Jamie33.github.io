@@ -1,4 +1,16 @@
 
+---
+
+title: Python Challenge Solutions
+date:  2018.5.7
+categories:  Riddle
+tags:  Solutions
+keywords:  PythonChallenge
+
+---
+
+The first programming riddle on the net
+
 # Warming Up
 
 http://www.pythonchallenge.com/pc/def/0.html
@@ -12,6 +24,7 @@ print(2**38)
 
     274877906944
     
+<!-- more -->
 
 # What about making trans
 

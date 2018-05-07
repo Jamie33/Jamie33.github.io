@@ -10,7 +10,7 @@ tags:  scope
 
 Python中有作用域链，变量会由内到外找，先去自己作用域去找，自己没有再去上级去找，直到找不到报错
 
-<!-- more -->
+
 
 ```python
 name = "lzl"
@@ -25,7 +25,7 @@ f1()
 
     Snor
     
-
+<!-- more -->
 
 ```python
 name = "lzl"
