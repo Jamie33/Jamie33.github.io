@@ -1,0 +1,25 @@
+menu:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+  Tags: /tags
+
+# duoshuo comment
+duoshuo: false
+duoshuo_name:
+
+# disqus comment
+disqus: true
+disqus_shortname: jamie33
+
+# google analytics
+googleTrackId: UA-118264577-1
+
+#gitalk settings
+gitalk:
+  enable: false #用来做启用判断可以不用
+  owner: Jamie33
+  repo: Jamie33.github.io
+  admin: Jamie33
+  clientID: d512f8f30df131fee3c5
+  clientSecret: 5399d0b134b2726a53b55e6c6ce15a2bdd2f6954
