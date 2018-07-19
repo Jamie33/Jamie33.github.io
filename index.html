@@ -69,6 +69,93 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/07/19/regex/"><span>Python 中的正则表达式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/07/19/regex/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-07-18T16:00:00.000Z">
+          2018-07-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="Regex-in-Python"><a href="#Regex-in-Python" class="headerlink" title="Regex in Python"></a>Regex in Python</h1><blockquote>
+<p>在编写处理字符串的程序或网页时，经常会有查找符合某些复杂规则的字符串的需要。正则表达式就是用于描述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。</p>
+</blockquote>
+<h2 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h2><p>.       匹配除换行符之外的任意字符，当re.S(DOTALL)标记被指定时，这可以匹配包括换         行符的任意字符 </p>
+<p>\d        可以匹配一个数字 等同于[0-9]</p>
+<p>\D        等同于[^0-9]匹配非数字</p>
+<p>\w        等同于[a-z0-9A-Z_]匹配大小写字母、数字和下划线</p>
+<p>\W        等同于[^a-z0-9A-Z_]等同于上一条取非</p>
+<p>A|B     可以匹配A或B，所以(P|p)ython可以匹配’Python’或者’python’</p>
+<p>^       表示行的开头，^\d表示必须以数字开头</p>
+<p>\$      表示行的结束，\d$表示必须以数字结束</p>
+<p>\s      可以匹配空白字符,等价于 [\t\n\r\f]。（也包括Tab等空白符）</p>
+<p>\S      匹配任意非空字符 </p>
+<p>\n      匹配一个换行符</p>
+<p>\t      匹配一个制表符</p>
+<p>\A      匹配字符串开头</p>
+<p>\Z      匹配字符串结尾，如果存在换行，只匹配到换行前的结束字符串</p>
+<p>\z      匹配字符串结尾，如果存在换行，同时还会匹配换行符</p>
+<p>\G      匹配最后匹配完成的位置 （不懂需要理解）</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Topics/">Topics</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Regex/">Regex</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/07/19/regex/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/05/07/Iterable_Iterator/"><span>Iterable and Iterator</span></a></h3>
     
   
@@ -124,80 +211,6 @@
         <i class="icon-comments"></i>
         <span>
           <a href="/2018/05/07/Iterable_Iterator/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/PythonChallenge/"><span>Python Challenge Solutions</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/PythonChallenge/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>The first programming riddle on the net</p>
-<h1 id="Warming-Up"><a href="#Warming-Up" class="headerlink" title="Warming Up"></a>Warming Up</h1><p><a href="http://www.pythonchallenge.com/pc/def/0.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/0.html</a></p>
-<p>线索：试着改变URL的地址–&gt;把图片中得到的数字输入到URL中</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2</span>**<span class="number">38</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>274877906944
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Riddle/">Riddle</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Solutions/">Solutions</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/PythonChallenge/#comment">Comments</a>
         </span>
       </span>
     </div>
@@ -725,13 +738,13 @@ Jim123@qq.com
 
   
     
-    <h3 class="article-title"><a href="/2018/05/07/sort_value_in_dict/"><span>How to sort value in dict</span></a></h3>
+    <h3 class="article-title"><a href="/2018/05/07/PythonChallenge/"><span>Python Challenge Solutions</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2018/05/07/sort_value_in_dict/" rel="bookmark">
+      <a href="/2018/05/07/PythonChallenge/" rel="bookmark">
         <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
           2018-05-07
         </time>
@@ -745,14 +758,11 @@ Jim123@qq.com
   <div class="article-content">
     <div class="entry">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="comment">#建一个字典</span></span><br><span class="line">data = &#123;x: randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="string">'xyzabc'</span>&#125; <span class="comment">#字典推导式</span></span><br><span class="line">print(data)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line">sorted(data)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;x&apos;: 74, &apos;y&apos;: 90, &apos;z&apos;: 64, &apos;a&apos;: 79, &apos;b&apos;: 79, &apos;c&apos;: 99}
-
-
-
-
-
-[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;]
+        <p>The first programming riddle on the net</p>
+<h1 id="Warming-Up"><a href="#Warming-Up" class="headerlink" title="Warming Up"></a>Warming Up</h1><p><a href="http://www.pythonchallenge.com/pc/def/0.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/0.html</a></p>
+<p>线索：试着改变URL的地址–&gt;把图片中得到的数字输入到URL中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2</span>**<span class="number">38</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>274877906944
 </code></pre>
       
     </div>
@@ -767,7 +777,7 @@ Jim123@qq.com
 
     <span class="post-categories">
       <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
+        <a href="/categories/Riddle/">Riddle</a>
     </span>
     
 
@@ -776,7 +786,7 @@ Jim123@qq.com
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/dict/">dict</a><a href="/tags/value/">value</a>
+        <a href="/tags/Solutions/">Solutions</a>
     </span>
     
 
@@ -787,7 +797,7 @@ Jim123@qq.com
       <span>
         <i class="icon-comments"></i>
         <span>
-          <a href="/2018/05/07/sort_value_in_dict/#comment">Comments</a>
+          <a href="/2018/05/07/PythonChallenge/#comment">Comments</a>
         </span>
       </span>
     </div>
