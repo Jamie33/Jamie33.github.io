@@ -156,6 +156,83 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/07/19/hackerrank/"><span>刷题 hackerrank Python 部分，多种解答方式和知识点归纳</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/07/19/hackerrank/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-07-18T16:00:00.000Z">
+          2018-07-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="Print-Function"><a href="#Print-Function" class="headerlink" title="Print Function"></a>Print Function</h1><p><a href="https://www.hackerrank.com/challenges/python-print/problem" target="_blank" rel="noopener">https://www.hackerrank.com/challenges/python-print/problem</a></p>
+<p>打印出123…N 之间的整数</p>
+<p><span class="girk">方法一</span> 用 for 循环依次打印出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">    print(i,end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>123
+</code></pre><p><span class="girk">方法二</span> 用 print 内置函数的参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n=<span class="number">3</span></span><br><span class="line">print(*range(<span class="number">1</span>, n+<span class="number">1</span>), sep=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>123
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Challenges/">Challenges</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hackerrank/">Hackerrank</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/07/19/hackerrank/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/05/07/Iterable_Iterator/"><span>Iterable and Iterator</span></a></h3>
     
   
@@ -211,79 +288,6 @@
         <i class="icon-comments"></i>
         <span>
           <a href="/2018/05/07/Iterable_Iterator/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/05/07/dict_commonkey/"><span>How to find common keys in dict</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/dict_commonkey/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="字典生产式"><a href="#字典生产式" class="headerlink" title="字典生产式"></a>字典生产式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint,sample </span><br><span class="line"><span class="comment"># random.sample(sequence, k)，从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。</span></span><br><span class="line">s1 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s2 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s3 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">print(s1)</span><br><span class="line">print(s2)</span><br><span class="line">print(s3)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;d&apos;: 4, &apos;a&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;c&apos;: 4, &apos;b&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;e&apos;: 3, &apos;c&apos;: 4, &apos;d&apos;: 3, &apos;a&apos;: 3}
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/commonkey/">commonkey</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/dict_commonkey/#comment">Comments</a>
         </span>
       </span>
     </div>
