@@ -16,7 +16,8 @@ I am a translator desperately in love with Python.
 Life is short, I use Python.
 
 </P>
-<img src="https://s1.ax2x.com/2018/08/01/53wvtG.jpg" alt="53wvtG.jpg" border="0" />
+<img src="https://i.loli.net/2018/11/26/5bfb556d1ed9b.jpg" alt="53wvtG.jpg" border="0" />
+
 <P style='text-align:center'>
 In case you want to get to know me, scan the QR code above to add me on Wechat
 </P>
