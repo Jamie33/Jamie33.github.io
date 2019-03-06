@@ -69,79 +69,6 @@
 
   
     
-    <h3 class="article-title"><a href="/2018/05/07/dict_commonkey/"><span>How to find common keys in dict</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/05/07/dict_commonkey/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
-          2018-05-07
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="字典生产式"><a href="#字典生产式" class="headerlink" title="字典生产式"></a>字典生产式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint,sample </span><br><span class="line"><span class="comment"># random.sample(sequence, k)，从指定序列中随机获取指定长度的片断。sample函数不会修改原有序列。</span></span><br><span class="line">s1 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s2 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">s3 = &#123;x: randint(<span class="number">3</span>,<span class="number">4</span>) <span class="keyword">for</span> x <span class="keyword">in</span> sample(<span class="string">'abcdef'</span>,randint(<span class="number">4</span>,<span class="number">6</span>))&#125;</span><br><span class="line">print(s1)</span><br><span class="line">print(s2)</span><br><span class="line">print(s3)</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;d&apos;: 4, &apos;a&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;c&apos;: 4, &apos;b&apos;: 3, &apos;e&apos;: 3, &apos;f&apos;: 4}
-{&apos;e&apos;: 3, &apos;c&apos;: 4, &apos;d&apos;: 3, &apos;a&apos;: 3}
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Skills/">Skills</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/commonkey/">commonkey</a>
-    </span>
-    
-
-    </div>
-
-    
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2018/05/07/dict_commonkey/#comment">Comments</a>
-        </span>
-      </span>
-    </div>
-    
-  </div>
-</article>
-
-
-
-
-  <article>
-
-  
-    
     <h3 class="article-title"><a href="/2018/05/07/sort_value_in_dict/"><span>How to sort value in dict</span></a></h3>
     
   
@@ -219,13 +146,13 @@
 
   
     
-    <h3 class="article-title"><a href="/2018/05/07/named_tuple/"><span>What does named tuple do?</span></a></h3>
+    <h3 class="article-title"><a href="/2018/05/07/filter_in_list_dict_set/"><span>How to filter in list,set and dict</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2018/05/07/named_tuple/" rel="bookmark">
+      <a href="/2018/05/07/filter_in_list_dict_set/" rel="bookmark">
         <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
           2018-05-07
         </time>
@@ -239,11 +166,20 @@
   <div class="article-content">
     <div class="entry">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">student=(<span class="string">'Jim'</span>,<span class="string">'16'</span>,<span class="string">'male'</span>,<span class="string">'Jim123@qq.com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># name</span></span><br><span class="line">print(student[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># age</span></span><br><span class="line">print(student[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># sex</span></span><br><span class="line">print(student[<span class="number">2</span>])</span><br><span class="line">    </span><br><span class="line"><span class="comment">#email</span></span><br><span class="line">print(student[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#用元祖的下标索引来访问元组中的值，0，1，2，3名字没有意义</span></span><br></pre></td></tr></table></figure>
-<pre><code>Jim
-16
-male
-Jim123@qq.com
+        <h2 id="过滤掉列表中的负数【列表的三种方法】"><a href="#过滤掉列表中的负数【列表的三种方法】" class="headerlink" title="过滤掉列表中的负数【列表的三种方法】"></a>过滤掉列表中的负数【列表的三种方法】</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10到-10之间随机列表</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">data = [randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)]</span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">c = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        c.append(i)</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">d = [i <span class="keyword">for</span> i <span class="keyword">in</span> data <span class="keyword">if</span> i &gt; <span class="number">0</span>]</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法三：filter 函数</span></span><br><span class="line">f = filter(<span class="keyword">lambda</span> x:x &gt; <span class="number">0</span>,data)</span><br><span class="line">print(list(f))</span><br></pre></td></tr></table></figure>
+<pre><code>[-6, 0, 4, -6, -7, 2, 9, -10, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+[4, 2, 9, 2, 4]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用字典生成式建立一个20人的字典</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line">p = &#123;i:randint(<span class="number">60</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">21</span>)&#125;</span><br><span class="line">print(p)</span><br><span class="line">p =&#123;<span class="number">1</span>: <span class="number">88</span>, <span class="number">2</span>: <span class="number">80</span>, <span class="number">3</span>: <span class="number">76</span>, <span class="number">4</span>: <span class="number">92</span>, <span class="number">5</span>: <span class="number">88</span>, <span class="number">6</span>: <span class="number">93</span>, <span class="number">7</span>: <span class="number">91</span>, <span class="number">8</span>: <span class="number">100</span>, <span class="number">9</span>: <span class="number">60</span>, <span class="number">10</span>: <span class="number">68</span>, <span class="number">11</span>: <span class="number">85</span>, <span class="number">12</span>: <span class="number">95</span>, <span class="number">13</span>: <span class="number">73</span>, <span class="number">14</span>: <span class="number">77</span>, <span class="number">15</span>: <span class="number">65</span>, <span class="number">16</span>: <span class="number">82</span>, <span class="number">17</span>: <span class="number">67</span>, <span class="number">18</span>: <span class="number">87</span>, <span class="number">19</span>: <span class="number">89</span>, <span class="number">20</span>: <span class="number">92</span>&#125;</span><br><span class="line"><span class="comment">#筛出字典中值高于90的项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">h = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> p.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">90</span>:</span><br><span class="line">        h[k] = p[k]</span><br><span class="line">print(h)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：字典解析</span></span><br><span class="line"></span><br><span class="line">g = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> p.items() <span class="keyword">if</span> v&gt;<span class="number">90</span>&#125;</span><br><span class="line">print(g)</span><br></pre></td></tr></table></figure>
+<pre><code>{1: 85, 2: 93, 3: 60, 4: 65, 5: 97, 6: 83, 7: 79, 8: 61, 9: 80, 10: 69, 11: 95, 12: 98, 13: 91, 14: 94, 15: 64, 16: 60, 17: 85, 18: 95, 19: 64, 20: 60}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+{4: 92, 6: 93, 7: 91, 8: 100, 12: 95, 20: 92}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用列表生成式建立一个10个数的集合</span></span><br><span class="line">s = set([randint(<span class="number">-10</span>,<span class="number">10</span>) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)])</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#筛出集合中能被3整除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方法一：for 循环</span></span><br><span class="line">n = set()<span class="comment">#创建空集合</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">       n.add(i)</span><br><span class="line">print(n)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方法二：列表解析</span></span><br><span class="line">w = set([i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>])</span><br><span class="line">w1 = &#123;i <span class="keyword">for</span> i <span class="keyword">in</span> s <span class="keyword">if</span> i%<span class="number">3</span> == <span class="number">0</span>&#125;<span class="comment">#和字典解析的区别在于前面没有冒号</span></span><br><span class="line">print(w)</span><br><span class="line">print(w1)</span><br></pre></td></tr></table></figure>
+<pre><code>{2, 6, 9, -8, -7, -3, -1}
+{9, -3, 6}
+{9, -3, 6}
+{9, -3, 6}
 </code></pre>
       
     </div>
@@ -267,7 +203,7 @@ Jim123@qq.com
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Skills/">Skills</a>
+        <a href="/tags/filter/">filter</a>
     </span>
     
 
@@ -278,7 +214,81 @@ Jim123@qq.com
       <span>
         <i class="icon-comments"></i>
         <span>
-          <a href="/2018/05/07/named_tuple/#comment">Comments</a>
+          <a href="/2018/05/07/filter_in_list_dict_set/#comment">Comments</a>
+        </span>
+      </span>
+    </div>
+    
+  </div>
+</article>
+
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/05/07/PythonChallenge/"><span>Python Challenge Solutions</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/05/07/PythonChallenge/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-05-06T16:00:00.000Z">
+          2018-05-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>The first programming riddle on the net</p>
+<h1 id="Warming-Up"><a href="#Warming-Up" class="headerlink" title="Warming Up"></a>Warming Up</h1><p><a href="http://www.pythonchallenge.com/pc/def/0.html" target="_blank" rel="noopener">http://www.pythonchallenge.com/pc/def/0.html</a></p>
+<p>线索：试着改变URL的地址–&gt;把图片中得到的数字输入到URL中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2</span>**<span class="number">38</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>274877906944
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Riddle/">Riddle</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Solutions/">Solutions</a>
+    </span>
+    
+
+    </div>
+
+    
+    <div class="article-meta pull-right">
+      <span>
+        <i class="icon-comments"></i>
+        <span>
+          <a href="/2018/05/07/PythonChallenge/#comment">Comments</a>
         </span>
       </span>
     </div>
@@ -523,7 +533,7 @@ Jim123@qq.com
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2018 Jamie
+    &copy; 2019 Jamie
     
   </p>
 </footer>
